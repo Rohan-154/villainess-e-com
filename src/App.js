@@ -1,9 +1,9 @@
 import "./App.css";
 // import axios from "axios";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Mockman from "mockman-js";
 import{NavBar} from './Components/Navbar/navbar.jsx';
-import {Body} from '../src/Components/homeBody/body';
+import {Body} from './Components/homeBody/body.jsx';
 function App() {
   return (
     <div className="App">

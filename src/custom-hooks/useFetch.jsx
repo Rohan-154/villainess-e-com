@@ -1,25 +1,36 @@
 import axios from "axios";
-import { useEffect, useState } from "react/cjs/react.production.min";
+import { useEffect, useState } from "react";
 
-const useFetch = (url) => {
+const useFetch = (url, dataName) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(true);
+
   useEffect(() => {
-     
-    (async () => {
-      try {
-        const {data, status } = await axios.get(url);
-        if (status === 200) setData(data);
-      } catch (error) {
-        setError(error);
-      }
-      finally{
-          setLoader(false)
-      }
-    })();
+    const abortCont = new AbortController();
+    
+      (async () => {
+        try {
+          const { data, status } = await axios.get(url, { signal: abortCont });
+          console.log(data, status);
+          if (status === 200) {
+            setData(data[dataName]); //data[categories]
+            setLoader(false);
+          }
+        } catch (error) {
+          if (error.name === "AbortError") {
+            console.log("fetch aborted");
+          } else {
+            setLoader(false);
+            setError(error);
+          }
+        }
+      })();
+    
+
+    return () => abortCont.abort();
   }, [url]);
-  return { data, error, loader}
+  return { data, error, loader };
 };
 
-export {useFetch}
+export { useFetch };
