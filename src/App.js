@@ -1,15 +1,13 @@
 import "./App.css";
 // import axios from "axios";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
-import{NavBar} from './Components/Navbar/navbar.jsx';
-import {Body} from './Components/homeBody/body.jsx';
+import { Body } from "./Routes/homeBody/body.jsx";
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Body />
       <Routes>
+        <Route path="/" element={<Body />} />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
