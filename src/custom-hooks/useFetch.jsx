@@ -12,7 +12,6 @@ const useFetch = (url, dataName) => {
       (async () => {
         try {
           const { data, status } = await axios.get(url, { signal: abortCont });
-          console.log(data, status);
           if (status === 200) {
             setData(data[dataName]); //data[categories]
             setLoader(false);

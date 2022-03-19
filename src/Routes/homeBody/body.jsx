@@ -1,18 +1,16 @@
 import { useFetch } from "../../custom-hooks/useFetch";
 import { CategoryList } from "../../Components/CategoryList/categoryList.jsx";
 import { FeatureTheme } from "../../Components/FeatureTheme/featureTheme.jsx";
-import { Footer } from "../../Components/Footer/footer.jsx";
-import { NavBar } from "../../Components/Navbar/navbar.jsx";
+
 const Body = () => {
   const {
     data: categories,
     error,
     loader,
   } = useFetch("/api/categories", "categories");
-  console.log("rohan123", categories);
   return (
     <div>
-      <NavBar />
+     
       <div className="bg-img-stretch"></div>
       <div className="spacer-3rem"></div>
       <h2 className="text-align-center top-margin-7rem">
@@ -39,7 +37,7 @@ const Body = () => {
             <FeatureTheme categories={categories} />
           ))}
       </div>
-      <Footer />
+      
     </div>
   );
 };
