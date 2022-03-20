@@ -3,6 +3,7 @@ import { ProductListing } from "../../Components/ProductListing/productListing.j
 import { useFetch } from "../../custom-hooks/useFetch.jsx";
 import { PriceSlider } from "../../Components/Pure-Functions/priceSlider.jsx"; 
 import { useProduct } from "../../Context/context.jsx";
+import { Categories } from "../../Components/Pure-Functions/category.jsx";
 const ShopNow = () => {
   const {
     data: products,
@@ -10,7 +11,15 @@ const ShopNow = () => {
     loader,
   } = useFetch("/api/products", "products");
   const {state} = useProduct();
-  const priceFiltered = PriceSlider(products, state.price)
+  const {clothing, accessories, toys,MobileCovers}= state.categories
+  const priceFiltered = PriceSlider(products, state.price);
+  const categoryFiltered= Categories(priceFiltered,
+    clothing,
+    accessories,
+    toys,
+    MobileCovers
+
+    )
   return (
     <>
       <div className="flex-wrap-shop">
@@ -19,8 +28,8 @@ const ShopNow = () => {
         <div className="grid-layout-3-col">
         {error && <p> {error}</p>}
         {loader && <p> Loading... </p>}
-        {priceFiltered &&
-          priceFiltered?.map((products) => <ProductListing products={products} />)}
+        {categoryFiltered &&
+          categoryFiltered?.map((products) => <ProductListing products={products} key={products.id} />)}
           </div>
       </div>
       </div>

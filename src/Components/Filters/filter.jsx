@@ -2,8 +2,9 @@ import "./filter.css";
 import { Abbreviations } from "../../Reducer/reducer.jsx";
 import { useProduct } from "../../Context/context.jsx";
 const Filter = () => {
-  const{ state, dispatch } = useProduct();
-  const {price} = state;
+  const { state, dispatch } = useProduct();
+  const { sortBy, price, categories, discount,rating} = state;
+  const{clothing, accessories,toys, MobileCovers}= categories;
   return (
     <>
       <h3 className="res-top">
@@ -39,8 +40,11 @@ const Filter = () => {
                   value={price}
                   list="range-labeller"
                   className="slider-ranger"
-                  onChange={(e)=>{
-                     dispatch({type:Abbreviations.PRICE, payload: e.target.value })
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.PRICE,
+                      payload: e.target.value,
+                    });
                   }}
                 />
 
@@ -76,6 +80,56 @@ const Filter = () => {
             <hr />
             <div className="spacer-1rem"></div>
             <li>
+              <h3 className="underline">Categories</h3>
+            </li>
+            <div className="spacer-1rem"></div>
+            <li>
+              <label htmlFor="categories" className="label-selector">
+                <input type="checkbox" className="checkbox-select"  id="categories"
+                name="categories"
+                checked={clothing}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.CLOTHING})
+                }}
+                 /> Clothing
+              </label>
+            </li>
+            <li>
+              <label for="accessories" className="label-selector">
+              <input type="checkbox" className="checkbox-select"  id="accessories"
+                name="accessories"
+                checked={accessories}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.ACCESSORIES})
+                }}
+                 /> accessories
+              </label>
+            </li>
+            <li>
+              <label for="toys" className="label-selector">
+              <input type="checkbox" className="checkbox-select"  id="toys"
+                name="toys"
+                checked={toys}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.TOYS})
+                }}
+                 /> Toys
+              </label>
+            </li>
+            <li>
+              <label for="MobileCovers" className="label-selector">
+              <input type="checkbox" className="checkbox-select"  id="MobileCovers"
+                name="toys"
+                checked={MobileCovers}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.MOBILECOVERS})
+                }}
+                 /> Mobile Covers
+              </label>
+            </li>
+            <hr />
+            <div className="spacer-1rem"></div>
+            <li>
               <h3 className="underline">Customer Rating </h3>
             </li>
             <div className="spacer-1rem"></div>
@@ -104,40 +158,6 @@ const Filter = () => {
               </label>
             </li>
             <div className="spacer-1rem"></div>
-            <hr />
-            <div className="spacer-1rem"></div>
-            <li>
-              <h3 className="underline">Categories</h3>
-            </li>
-            <div className="spacer-1rem"></div>
-            <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Clothing
-              </label>
-            </li>
-            <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" />{" "}
-                Accessories
-              </label>
-            </li>
-            <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Toys
-              </label>
-            </li>
-            <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Mobile
-                Covers
-              </label>
-            </li>
-            <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" />{" "}
-                Sweatshirts and Hoodies
-              </label>
-            </li>
 
             <div className="spacer-1rem"></div>
             <hr />
@@ -148,7 +168,14 @@ const Filter = () => {
             <div className="spacer-1rem"></div>
             <li>
               <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> The
+                <input type="checkbox" className="checkbox-select" 
+                name="punisher"
+                checked={punisher}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.PU})
+                }}
+                
+                /> The
                 Punisher
               </label>
             </li>

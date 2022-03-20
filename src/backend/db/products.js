@@ -12,10 +12,10 @@ export const products = [
     catchName: "the popular kid",
     price: 525,
     discardPrice: 1125,
-    categoryName: "Clothing",
+    categoryName: "clothing",
     discount: 67,
     rating: 5,
-    Theme: 'Punisher',
+    Theme: 'punisher',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/punisher-hoodie.jpg'
   },
   {
@@ -24,10 +24,10 @@ export const products = [
     catchName: "the most clever kid",
     price: 2578,
     discardPrice: 4897,
-    categoryName: "Accessories",
+    categoryName: "accessories",
     discount: 49,
     rating: 4,
-    Theme: 'Loki',
+    Theme: 'loki',
     img: 'https://sc02.alicdn.com/kf/H5ad909d212b345c39bf07405d11eaa24D/228714741/H5ad909d212b345c39bf07405d11eaa24D.jpg_.webp'
   },
   {
@@ -36,10 +36,10 @@ export const products = [
     catchName: "the mad-man",
     price: 1278,
     discardPrice: 2556,
-    categoryName: "Toys",
+    categoryName: "toys",
     discount: 50,
     rating: 5,
-    theme: 'Venom',
+    theme: 'venom',
     img:'http://walyou.com/wp-content/uploads//2013/07/Venom-Bot-e1373904509760.jpg'
   },
   {
@@ -48,10 +48,10 @@ export const products = [
     catchName: "the mad-man",
     price: 399,
     discardPrice: 798,
-    categoryName: "MobileCover",
+    categoryName: "MobileCovers",
     discount: 50,
     rating: 4,
-    theme: 'Venom',
+    theme: 'venom',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/venom-mobile.jpg'
   },
   {
@@ -60,10 +60,10 @@ export const products = [
     catchName: "the comedy kid who fights seriously",
     price: 150,
     discardPrice: 400,
-    categoryName: "Accessories",
+    categoryName: "accessories",
     discount: 45,
     rating: 3,
-    theme: 'Deadpool',
+    theme: 'deadpool',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/deadpool-mug.jpg'
   },
   {
@@ -72,10 +72,10 @@ export const products = [
     catchName: "the smartest kid",
     price: 299,
     discardPrice: 799,
-    categoryName: "Clothing",
+    categoryName: "clothing",
     discount: 49,
     rating: 5,
-    theme: 'Daredevil',
+    theme: 'daredevil',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/dardevil-tees.jpg'
   },
   {
@@ -84,10 +84,10 @@ export const products = [
     catchName: "the most clever kid",
     price: 99,
     discardPrice: 199,
-    categoryName: "Clothing",
+    categoryName: "accessories",
     discount: 48,
     rating: 4,
-    theme: 'Loki',
+    theme: 'loki',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/loki-product.jpg'
   },
 ];

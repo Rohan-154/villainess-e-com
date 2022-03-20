@@ -8,9 +8,10 @@ const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunction, {
     sortBy: "",
     price: 4000,
-    categories: { clothing: false, Accessories: false, toys: false },
+    categories: { clothing: false, accessories: false, toys: false, MobileCovers:false },
     discount: "",
     rating: "",
+    theme:{ punisher: false, daredevil: false, venom: false, deadpool:false, loki:false }
   });
   return (
     <>
