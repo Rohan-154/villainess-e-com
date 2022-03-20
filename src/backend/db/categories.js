@@ -8,20 +8,38 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Clothing",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Get your favorite anti-hero clothing for men and women like hoodies, sweatshirts etc.",
+    img: "https://villainess-e-store.netlify.app/Assets/category-1.jpg",
+    imgTheme: 'https://villainess-e-store.netlify.app/Assets/punisher.jpg',
+    ThemeName: 'The Punisher'
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Accessories",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Get your favorite anti-hero accessories for men and women like The Captain America Shield and Deadpool Coffee Mug etc.",
+    img: "https://villainess-e-store.netlify.app/Assets/Marvel-Must-Haves-Loki-Episode-5-1.jpg",
+    imgTheme: 'https://villainess-e-store.netlify.app/Assets/daredevil-fire.jpg',
+    ThemeName: 'Daredevil'
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Toys",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Get your favorite anti-hero toys for kids like Thanos Gaunglet with Iron Man, etc.",
+    img: "https://villainess-e-store.netlify.app/Assets/toys.jpg",
+    imgTheme: 'https://villainess-e-store.netlify.app/Assets/venom.jpg',
+    ThemeName: 'Venom'
+  },
+  {
+    _id: uuid(),
+    categoryName: "Mobile-Covers",
+    description:
+      "Get your favorite anti-hero theme based mobile covers for your iPhone and android phones.",
+      img: "https://villainess-e-store.netlify.app/Assets/category-4.jpg",
+      imgTheme: 'https://villainess-e-store.netlify.app/Assets/deadpool.jpg',
+      ThemeName: 'Deadpool'
   },
 ];
