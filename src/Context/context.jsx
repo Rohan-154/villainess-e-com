@@ -2,8 +2,8 @@ import {
   createContext,
   useContext,
   useReducer,
-} from "react/cjs/react.production.min";
-
+} from "react";
+import { reducerFunction } from "../Reducer/reducer";
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunction, {
     sortBy: "",

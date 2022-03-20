@@ -1,5 +1,9 @@
-import "../Filter-Functions/filter.css";
+import "./filter.css";
+import { Abbreviations } from "../../Reducer/reducer.jsx";
+import { useProduct } from "../../Context/context.jsx";
 const Filter = () => {
+  const{ state, dispatch } = useProduct();
+  const {price} = state;
   return (
     <>
       <h3 className="res-top">
@@ -32,9 +36,12 @@ const Filter = () => {
                   min="500"
                   max="4000"
                   step="500"
-                  //value={price}
+                  value={price}
                   list="range-labeller"
                   className="slider-ranger"
+                  onChange={(e)=>{
+                     dispatch({type:Abbreviations.PRICE, payload: e.target.value })
+                  }}
                 />
 
                 <datalist id="range-labeller">
