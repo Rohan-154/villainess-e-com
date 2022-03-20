@@ -15,7 +15,7 @@ export const products = [
     categoryName: "clothing",
     discount: 67,
     rating: 5,
-    Theme: 'punisher',
+    theme: 'punisher',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/punisher-hoodie.jpg'
   },
   {
@@ -27,7 +27,7 @@ export const products = [
     categoryName: "accessories",
     discount: 49,
     rating: 4,
-    Theme: 'loki',
+    theme: 'loki',
     img: 'https://sc02.alicdn.com/kf/H5ad909d212b345c39bf07405d11eaa24D/228714741/H5ad909d212b345c39bf07405d11eaa24D.jpg_.webp'
   },
   {
@@ -61,7 +61,7 @@ export const products = [
     price: 150,
     discardPrice: 400,
     categoryName: "accessories",
-    discount: 45,
+    discount: 20,
     rating: 3,
     theme: 'deadpool',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/deadpool-mug.jpg'
@@ -74,7 +74,7 @@ export const products = [
     discardPrice: 799,
     categoryName: "clothing",
     discount: 49,
-    rating: 5,
+    rating: 2,
     theme: 'daredevil',
     img: 'https://villainess-e-store.netlify.app/Assets/product-images/dardevil-tees.jpg'
   },

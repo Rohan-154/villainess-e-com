@@ -39,24 +39,30 @@
     width: 100%;
     object-fit: contain;
 }
-.main-body{
-display: flex;
-flex-direction: column;
+
+.main-body {
+    display: flex;
+    flex-direction: column;
 }
-.card-container{
+
+.card-container {
     width: auto;
     cursor: pointer;
 }
-.footer-card{
+
+.footer-card {
     display: flex;
     justify-content: space-between;
 }
-.main-body > p{
+
+.main-body>p {
     margin: .4rem 0rem 0rem 1rem;
 }
-.btn-primary-card:hover{
+
+.btn-primary-card:hover {
     color: var(--danger-message-color);
 }
-.slider-ranger{
+
+.slider-ranger {
     width: 17rem;
 }

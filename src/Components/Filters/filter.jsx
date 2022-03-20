@@ -3,8 +3,10 @@ import { Abbreviations } from "../../Reducer/reducer.jsx";
 import { useProduct } from "../../Context/context.jsx";
 const Filter = () => {
   const { state, dispatch } = useProduct();
-  const { sortBy, price, categories, discount,rating} = state;
-  const{clothing, accessories,toys, MobileCovers}= categories;
+  const { sortBy, price, categories, discount, rating, theme } = state;
+  const { clothing, accessories, toys, MobileCovers } = categories;
+  const { punisher, daredevil, venom, deadpool, loki } = theme;
+
   return (
     <>
       <h3 className="res-top">
@@ -19,9 +21,9 @@ const Filter = () => {
       <div className="filter-wrapper">
         <div className="filter-class">
           <h3>FILTERS</h3>
-          <a href="" className="create-acc">
+          <button className="create-acc underline" onClick={()=>dispatch({type:Abbreviations.CLEARFILTER})} style={{border:'none', backgroundColor:'#e0e0eb', cursor:'pointer', fontWeight:'bold'}}>
             CLEAR ALL
-          </a>
+          </button>
         </div>
         <hr />
 
@@ -65,14 +67,24 @@ const Filter = () => {
             </li>
             <div className="spacer-1rem"></div>
             <li>
-              <label htmlFor="filter-label" className="label-selector">
-                <input type="radio" name="sort" value="highToLow" /> Price High
+              <label htmlFor="sort-highToLow" className="label-selector">
+                <input type="radio" name="sort" value="highToLow" 
+                id="sort-highToLow" checked={state.sortBy === Abbreviations.HIGHTOLOW}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.HIGHTOLOW})
+                }}
+                /> Price High
                 to Low
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="radio" name="sort" value="lowToHigh" /> Price Low
+              <label for="sort-lowToHigh" className="label-selector">
+                <input type="radio" name="sort" value="lowToHigh" 
+                id="sort-lowToHigh" checked={state.sortBy === Abbreviations.LOWTOHIGH}
+                onChange={()=>{
+                  dispatch({type:Abbreviations.LOWTOHIGH})
+                }}
+                /> Price Low
                 to High
               </label>
             </li>
@@ -85,48 +97,65 @@ const Filter = () => {
             <div className="spacer-1rem"></div>
             <li>
               <label htmlFor="categories" className="label-selector">
-                <input type="checkbox" className="checkbox-select"  id="categories"
-                name="categories"
-                checked={clothing}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.CLOTHING})
-                }}
-                 /> Clothing
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="categories"
+                  name="categories"
+                  checked={clothing}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.CLOTHING });
+                  }}
+                />{" "}
+                Clothing
               </label>
             </li>
             <li>
               <label for="accessories" className="label-selector">
-              <input type="checkbox" className="checkbox-select"  id="accessories"
-                name="accessories"
-                checked={accessories}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.ACCESSORIES})
-                }}
-                 /> accessories
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="accessories"
+                  name="accessories"
+                  checked={accessories}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.ACCESSORIES });
+                  }}
+                />{" "}
+                accessories
               </label>
             </li>
             <li>
               <label for="toys" className="label-selector">
-              <input type="checkbox" className="checkbox-select"  id="toys"
-                name="toys"
-                checked={toys}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.TOYS})
-                }}
-                 /> Toys
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="toys"
+                  name="toys"
+                  checked={toys}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.TOYS });
+                  }}
+                />{" "}
+                Toys
               </label>
             </li>
             <li>
               <label for="MobileCovers" className="label-selector">
-              <input type="checkbox" className="checkbox-select"  id="MobileCovers"
-                name="toys"
-                checked={MobileCovers}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.MOBILECOVERS})
-                }}
-                 /> Mobile Covers
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="MobileCovers"
+                  name="toys"
+                  checked={MobileCovers}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.MOBILECOVERS });
+                  }}
+                />{" "}
+                Mobile Covers
               </label>
             </li>
+            <div className="spacer-1rem"></div>
             <hr />
             <div className="spacer-1rem"></div>
             <li>
@@ -134,31 +163,112 @@ const Filter = () => {
             </li>
             <div className="spacer-1rem"></div>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> 4{" "}
+              <label for="4-star" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="4-star"
+                name="radio-discount"
+                value='4'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.RATING, value:e.target.value})
+                }}
+                /> 4{" "}
                 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> 3{" "}
+            <label for="3-star" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="3-star"
+                name="radio-discount"
+                value='3'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.RATING, value:e.target.value})
+                }}
+                /> 3{" "}
                 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> 2{" "}
+            <label for="2-star" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="2-star"
+                name="radio-discount"
+                value='2'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.RATING, value:e.target.value})
+                }}
+                /> 2{" "}
                 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> 1{" "}
+            <label for="1-star" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="1-star"
+                name="radio-discount"
+                value='1'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.RATING, value:e.target.value})
+                }}
+                /> 1{" "}
                 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <div className="spacer-1rem"></div>
-
+            <hr />
+            <div className="spacer-1rem"></div>
+            <li>
+              <h3 className="underline"> Discount </h3>
+            </li>
+            <div className="spacer-1rem"></div>
+            <li>
+              <label for="40%" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="40%"
+                name="radio-discount"
+                value='40'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
+                }}
+                /> 40% & above
+              </label>
+            </li>
+            <li>
+            <label for="30%" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="30%"
+                name="radio-discount"
+                value='30'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
+                }}
+                /> 30% & above
+              </label>
+            </li>
+            <li>
+            <label for="20%" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="20%"
+                name="radio-discount"
+                value='20'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
+                }}
+                /> 20% & above
+              </label>
+            </li>
+            <li>
+            <label for="10%" className="label-selector">
+                <input type="radio" className="checkbox-select" 
+                id="10%"
+                name="radio-discount"
+                value='10'
+                onChange={(e)=>{
+                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
+                }}
+                /> 10% & above
+              </label>
+            </li>
             <div className="spacer-1rem"></div>
             <hr />
             <div className="spacer-1rem"></div>
@@ -167,36 +277,78 @@ const Filter = () => {
             </li>
             <div className="spacer-1rem"></div>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" 
-                name="punisher"
-                checked={punisher}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.PU})
-                }}
-                
-                /> The
-                Punisher
+              <label for="punisher" className="label-selector">
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="punisher"
+                  name="punisher"
+                  checked={punisher}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.PUNISHER });
+                  }}
+                />{" "}
+                The Punisher
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Daredevil
+              <label for="daredevil" className="label-selector">
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="daredevil"
+                  name="daredevil"
+                  checked={daredevil}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.DAREDEVIL });
+                  }}
+                />{" "}
+                Daredevil
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Venom
+              <label for="venom" className="label-selector">
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="venom"
+                  name="venom"
+                  checked={venom}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.VENOM });
+                  }}
+                />{" "}
+                Venom
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Deadpool
+              <label for="deadpool" className="label-selector">
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="deadpool"
+                  name="deadpool"
+                  checked={deadpool}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.DEADPOOL });
+                  }}
+                />{" "}
+                Deadpool
               </label>
             </li>
             <li>
-              <label for="filter-label" className="label-selector">
-                <input type="checkbox" className="checkbox-select" /> Loki
+              <label for="loki" className="label-selector">
+                <input
+                  type="checkbox"
+                  className="checkbox-select"
+                  id="loki"
+                  name="loki"
+                  checked={loki}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.LOKI });
+                  }}
+                />{" "}
+                Loki
               </label>
             </li>
           </ul>
