@@ -1,6 +1,6 @@
 import "./filter.css";
 import { Abbreviations } from "../../Reducer/reducer.jsx";
-import { useProduct } from "../../Context/context.jsx";
+import { useProduct } from "../../Context/product.jsx";
 const Filter = () => {
   const { state, dispatch } = useProduct();
   const { sortBy, price, categories, discount, rating, theme } = state;
@@ -78,7 +78,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="sort-lowToHigh" className="label-selector">
+              <label htmlFor="sort-lowToHigh" className="label-selector">
                 <input type="radio" name="sort" value="lowToHigh" 
                 id="sort-lowToHigh" checked={state.sortBy === Abbreviations.LOWTOHIGH}
                 onChange={()=>{
@@ -111,7 +111,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="accessories" className="label-selector">
+              <label htmlFor="accessories" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -126,7 +126,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="toys" className="label-selector">
+              <label htmlFor="toys" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -141,7 +141,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="MobileCovers" className="label-selector">
+              <label htmlFor="MobileCovers" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -163,7 +163,7 @@ const Filter = () => {
             </li>
             <div className="spacer-1rem"></div>
             <li>
-              <label for="4-star" className="label-selector">
+              <label htmlFor="4-star" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="4-star"
                 name="radio-discount"
@@ -176,7 +176,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-            <label for="3-star" className="label-selector">
+            <label htmlFor="3-star" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="3-star"
                 name="radio-discount"
@@ -189,7 +189,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-            <label for="2-star" className="label-selector">
+            <label htmlFor="2-star" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="2-star"
                 name="radio-discount"
@@ -202,7 +202,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-            <label for="1-star" className="label-selector">
+            <label htmlFor="1-star" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="1-star"
                 name="radio-discount"
@@ -222,7 +222,7 @@ const Filter = () => {
             </li>
             <div className="spacer-1rem"></div>
             <li>
-              <label for="40%" className="label-selector">
+              <label htmlFor="40%" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="40%"
                 name="radio-discount"
@@ -234,7 +234,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-            <label for="30%" className="label-selector">
+            <label htmlFor="30%" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="30%"
                 name="radio-discount"
@@ -246,7 +246,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-            <label for="20%" className="label-selector">
+            <label htmlFor="20%" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="20%"
                 name="radio-discount"
@@ -258,7 +258,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-            <label for="10%" className="label-selector">
+            <label htmlFor="10%" className="label-selector">
                 <input type="radio" className="checkbox-select" 
                 id="10%"
                 name="radio-discount"
@@ -277,7 +277,7 @@ const Filter = () => {
             </li>
             <div className="spacer-1rem"></div>
             <li>
-              <label for="punisher" className="label-selector">
+              <label htmlFor="punisher" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -292,7 +292,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="daredevil" className="label-selector">
+              <label htmlFor="daredevil" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -307,7 +307,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="venom" className="label-selector">
+              <label htmlFor="venom" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -322,7 +322,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="deadpool" className="label-selector">
+              <label htmlFor="deadpool" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
@@ -337,7 +337,7 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label for="loki" className="label-selector">
+              <label htmlFor="loki" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"

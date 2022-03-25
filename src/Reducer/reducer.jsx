@@ -1,20 +1,5 @@
-const Abbreviations = {
-  PRICE: "price",
-  CLOTHING: "clothing",
-  ACCESSORIES: "accessories",
-  TOYS: "toys",
-  MOBILECOVERS: "MobileCovers",
-  PUNISHER: "punisher",
-  DAREDEVIL: "daredevil",
-  VENOM: "venom",
-  DEADPOOL: "deadpool",
-  LOKI: "loki",
-  RATING: "rating",
-  DISCOUNT: "discount",
-  HIGHTOLOW: "highToLow",
-  LOWTOHIGH: "lowToHigh",
-  CLEARFILTER: "clearFilter",
-};
+import { Abbreviations } from "../Components/Abbreviations";
+
 const reducerFunction = (state, action) => {
   switch (action.type) {
     case Abbreviations.PRICE:

@@ -5,6 +5,7 @@ import { Body } from "./Routes/homeBody/body.jsx";
 import { ShopNow } from "./Routes/Products/shopNow.jsx";
 import { Footer } from "./Components/Footer/footer.jsx";
 import { NavBar } from "./Components/Navbar/navbar.jsx";
+import { CartCard } from "./Components/CartCard/cartCard.jsx";
 function App() {
   return (
     <div className="App">
@@ -12,9 +13,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/shopNow" element={<ShopNow />} />
+        <Route path="/cart" element={<CartCard />} />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
