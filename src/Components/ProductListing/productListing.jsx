@@ -7,7 +7,7 @@ const ProductListing = ({
     categoryName,
     discount,
     rating,
-    Theme,
+    theme,
     img,
   },
 }) => {
