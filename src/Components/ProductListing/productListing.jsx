@@ -1,7 +1,13 @@
+import { addTocart } from "../../Backend-Services/cartServices.jsx";
+import { useAuth } from "../../Context/authContext.jsx";
 import { useCart } from "../../Context/cart.jsx";
-import { Abbreviations } from "../../Reducer/reducer.jsx";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 const ProductListing = ({ products }) => {
-  const { state, dispatch } = useCart();
+  const navigate = useNavigate();
+  const { token } = useAuth();
+  const { cartState, cartDispatch } = useCart();
+  const { productsInCart } = cartState;
   const {
     title,
     catchName,
@@ -13,6 +19,7 @@ const ProductListing = ({ products }) => {
     theme,
     img,
   } = products;
+  
   return (
     <>
       <div className="all-card-collection" style={{ margin: "0rem" }}>
@@ -43,21 +50,21 @@ const ProductListing = ({ products }) => {
             </p>
           </main>
           <footer className="footer-card">
-
-            <button
-              className="btn-primary-card"
-
-              onClick={() => {
-                dispatch({
-                  type: Abbreviations.ADD_TO_CART,
-                  payload: products,
-                });
-              }}
-            >
-              {" "}
-              Add to cart{" "}
-            </button>
-
+            {productsInCart.find((items) => items._id === products._id) ? (
+              <Link to='/cart'>
+              <button className="btn-primary-card" style={{border:'1rem',padding:'1rem', backgroundColor:'var(--white-color)', fontSize:'medium', fontWeight:'bold'}}>Go to cart</button>
+              </Link>
+            ) : (
+              <button
+                className="btn-primary-card"
+                onClick={() => {
+                  addTocart(token, products, cartDispatch);
+                }}
+              >
+                {" "}
+                Add to cart{" "}
+              </button>
+            )}
             <button className="icons-card">
               {" "}
               <i className="fas fa-heart"></i>{" "}

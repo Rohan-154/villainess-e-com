@@ -16,7 +16,6 @@ const Abbreviations = {
     CLEARFILTER: "clearFilter",
     ADD_TO_CART: 'addToCart',
     REMOVE_FROM_CART: 'removerFromCart',
-    INCREASE_QUANTITY:'increaseQuantity',
-    DECREASE_QUANTITY : "decreaseQuantity"
+    UPDATE_QUANTITY : 'updateQuantity'
   };
   export{Abbreviations}

@@ -1,16 +1,11 @@
-const { createContext, useContext } = require("react");
-import { useReducer } from "react";
+import { useReducer, createContext, useContext } from "react";
 import { reducerFunction } from "../Reducer/cartReducer.jsx";
 
 const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducerFunction, {
-    itemsInCart: 0,
-    totalPrice: 0,
-    discountPrice:0,
-    productsInCart: [],
-    isEdit: false
+  const [cartState, cartDispatch] = useReducer(reducerFunction, {
+    productsInCart: []
   });
-  return <CartContext.Provider value={{state,dispatch}}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{cartState,cartDispatch}}>{children}</CartContext.Provider>;
 };
 
 const useCart = () => useContext(CartContext);
