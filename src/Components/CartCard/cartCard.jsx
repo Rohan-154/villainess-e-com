@@ -3,12 +3,14 @@ import { Abbreviations } from "../Abbreviations";
 
 const CartCard = () => {
   const { state, dispatch } = useCart();
-  const { itemsInCart, totalPrice, productsInCart, discountPrice } = state;
-  return (
+  const { itemsInCart, totalPrice, productsInCart, discountPrice} = state;
+  console.log(itemsInCart);
+   return (
     <div>
       <h2 className="text-align-center top-margin-7rem">
-        <i className="fa-solid fa-cart-shopping red"></i> My Shopping Cart
+        <i className="fa-solid fa-cart-shopping red"></i>{productsInCart.length!==0 ? ' My Shopping Cart' : ' Your Shopping Cart is Empty!🙄'}
       </h2>
+      {productsInCart.length!==0 &&
       <div className="cart-content-wrapper">
         <div className="flex-wrap-shop-2">
           <div className="address-wrapper">
@@ -45,8 +47,8 @@ const CartCard = () => {
                       <div className="flex-wrap-row">
                         <button className="btn-trash btn-icon" onClick={()=>{
                           dispatch({type: Abbreviations.DECREASE_QUANTITY, payload: items})
-                        }}>
-                          <i className="fa-solid fa-trash"></i>
+                        }} style={{fontWeight:'bolder'}}>
+                          { items.qty > 1 ? '-' : <i className="fa-solid fa-trash"></i>}
                         </button>
                         
                         <span> {items.qty} </span>
@@ -97,9 +99,9 @@ const CartCard = () => {
             Place Order
           </button>
         </div>
-      </div>
-    </div>
-  );
+      </div>}
+    </div> 
+  )
 };
 
 export { CartCard };

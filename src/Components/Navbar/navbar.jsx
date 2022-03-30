@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../Context/authContext";
+import { FiLogOut } from "react-icons/fi";
 const NavBar = () => {
+  const { token, logOutHandler } = useAuth();
   return (
     <nav className="land-navbar">
       <h1 className="land-heading-title">
@@ -37,19 +39,24 @@ const NavBar = () => {
             placeholder="Type to Search..."
           />
         </div>
-        <a
-          href="/Components-E-Com/login.html"
-          className="social-landing-page flex-column"
-        >
-          <i className="fa-solid fa-user fa-lg"></i> Login
-        </a>
+        {!token ? (
+          <Link to="/login" className="social-landing-page flex-column">
+            <i class="fa-solid fa-user fa-lg"></i> Login
+          </Link>
+        ) : (
+          <div to="/login" className="social-landing-page flex-column" onClick={logOutHandler} style={{cursor:'pointer'}}> 
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+          </div>
+        )}
+
         <a
           href="/Components-E-Com/wishlist.html"
           className="social-landing-page flex-column"
         >
           <i className="fa-solid fa-heart fa-lg"></i> Wishlist
         </a>
-        <Link to="/cart" className="landing-page-link">
+       
+        <Link to={token ? '/cart' : '/login'} className="landing-page-link">
           {" "}
           <i className="fa-solid fa-cart-shopping fa-lg"></i> Cart
         </Link>

@@ -1,6 +1,7 @@
 import { useFetch } from "../../custom-hooks/useFetch";
 import { CategoryList } from "../../Components/CategoryList/categoryList.jsx";
 import { FeatureTheme } from "../../Components/FeatureTheme/featureTheme.jsx";
+import { Footer } from "../../Components/Footer/footer";
 
 const Body = () => {
   const {
@@ -37,7 +38,7 @@ const Body = () => {
             <FeatureTheme categories={categories} />
           ))}
       </div>
-      
+      <Footer/>
     </div>
   );
 };
