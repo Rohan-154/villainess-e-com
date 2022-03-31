@@ -3,11 +3,17 @@ import { useAuth } from "../../Context/authContext.jsx";
 import { useCart } from "../../Context/cart.jsx";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import './productListing.css';
+import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
+import { useWishlist } from "../../Context/wishlistContext.jsx";
 const ProductListing = ({ products }) => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
+  console.log(productsInCart._id);
+  const{wishlistState, wishlistDispatch} = useWishlist();
+  const {productsInWishlist} = wishlistState;
   const {
     title,
     catchName,
@@ -52,20 +58,20 @@ const ProductListing = ({ products }) => {
           <footer className="footer-card">
             {productsInCart.find((items) => items._id === products._id) ? (
               <Link to='/cart'>
-              <button className="btn-primary-card" style={{border:'1rem',padding:'1rem', backgroundColor:'var(--white-color)', fontSize:'medium', fontWeight:'bold'}}>Go to cart</button>
+              <button className="btn-primary-card">Go to cart</button>
               </Link>
             ) : (
               <button
                 className="btn-primary-card"
                 onClick={() => {
-                  addTocart(token, products, cartDispatch);
+                  { token ? addTocart(token, products, cartDispatch) : navigate('/login')}
                 }}
               >
                 {" "}
                 Add to cart{" "}
               </button>
             )}
-            <button className="icons-card">
+            <button className="icons-card" onClick={()=> addToWishlist(token, products, wishlistDispatch)}>
               {" "}
               <i className="fas fa-heart"></i>{" "}
             </button>

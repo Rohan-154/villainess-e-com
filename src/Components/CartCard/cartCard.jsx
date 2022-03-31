@@ -1,19 +1,26 @@
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { removeFromCart, updateCart } from "../../Backend-Services/cartServices";
+import {
+  removeFromCart,
+  updateCart,
+} from "../../Backend-Services/cartServices";
+import { addToWishlist } from "../../Backend-Services/wishlistService";
 import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
+import { useWishlist } from "../../Context/wishlistContext";
 const CartCard = () => {
   const navigate = useNavigate();
   const { cartState, cartDispatch } = useCart();
   const { token } = useAuth();
   const { productsInCart } = cartState;
+  const {wishlistDispatch} = useWishlist();
+  console.log(productsInCart);
   !token && navigate("/login");
   return (
     <div>
       <h2 className="text-align-center top-margin-7rem">
         <i className="fa-solid fa-cart-shopping red"></i>
-        My Shopping Cart 
+        My Shopping Cart
       </h2>
       {productsInCart.length !== 0 ? (
         <div className="cart-content-wrapper">
@@ -53,27 +60,45 @@ const CartCard = () => {
                         <strong>({items.discount})%</strong>
                       </p>
                       <div className="flex-wrap-row">
-                        { items.qty > 1 ? (<button
-                          className="btn-trash btn-icon"
-                          onClick={() => {
-                            updateCart(token, items._id, 'decrement', cartDispatch)
-                          }}
-                          style={{ fontWeight: "bolder" }}
-                        > -
-                        </button>) : (<button
-                          className="btn-trash btn-icon"
-                          onClick={() => {
-                            removeFromCart(token, items._id, cartDispatch)
-                          }}
-                          style={{ fontWeight: "bolder" }}
-                        > <i className="fa-solid fa-trash"></i>
-                        </button>)}
-                        
+                        {items.qty > 1 ? (
+                          <button
+                            className="btn-trash btn-icon"
+                            onClick={() => {
+                              updateCart(
+                                token,
+                                items._id,
+                                "decrement",
+                                cartDispatch
+                              );
+                            }}
+                            style={{ fontWeight: "bolder" }}
+                          >
+                            {" "}
+                            -
+                          </button>
+                        ) : (
+                          <button
+                            className="btn-trash btn-icon"
+                            onClick={() => {
+                              removeFromCart(token, items._id, cartDispatch);
+                            }}
+                            style={{ fontWeight: "bolder" }}
+                          >
+                            {" "}
+                            <i className="fa-solid fa-trash"></i>
+                          </button>
+                        )}
+
                         <span> {items.qty} </span>
                         <button
                           className="btn-plus btn-icon"
                           onClick={() => {
-                            updateCart(token, items._id, 'increment', cartDispatch )
+                            updateCart(
+                              token,
+                              items._id,
+                              "increment",
+                              cartDispatch
+                            );
                           }}
                         >
                           {" "}
@@ -86,7 +111,15 @@ const CartCard = () => {
                     <p>
                       {items.rating} <i className="fa-solid fa-star"></i> | 400
                     </p>
-                    <button className="btn-login login-test" type="button">
+                    <button
+                      className="btn-login login-test"
+                      type="button"
+                      onClick={() => {
+                      
+                        removeFromCart(token, items._id, cartDispatch);
+                        addToWishlist(token, items, wishlistDispatch);
+                      }}
+                    >
                       Move to wishlist
                     </button>
                   </footer>
@@ -99,16 +132,14 @@ const CartCard = () => {
             <button className="btn-login login-test" type="button">
               <i className="fa-solid fa-tag"></i> Apply Coupon
             </button>
-            <p> PRICE DETAILS :  item </p>
+            <p> PRICE DETAILS : item </p>
             <div className="flex-wrap-row">
               <p> Total MRP: </p>
               <p>₹.00</p>
             </div>
             <div className="flex-wrap-row">
               <p> Discount on MRP : </p>
-              <p className="green-text">
-                ₹
-              </p>
+              <p className="green-text">₹</p>
             </div>
             <div className="flex-wrap-row">
               <p> Delivery Charges : </p>
@@ -129,18 +160,14 @@ const CartCard = () => {
         </div>
       ) : (
         <div>
-        <h2 className="text-align-center top-margin-7rem">
-        <i className="fa-solid fa-cart-shopping red"></i>
-        Cart is Empty
-      </h2>
-      <Link to='/shopNow'>
-      <button
-          class="btn-login login-test"
-        >
-        Explore Now 
-        </button>
-        </Link>
-      </div>
+          <h2 className="text-align-center top-margin-7rem">
+            <i className="fa-solid fa-cart-shopping red"></i>
+            Cart is Empty
+          </h2>
+          <Link to="/shopNow">
+            <button class="btn-login login-test">Explore Now</button>
+          </Link>
+        </div>
       )}
     </div>
   );
