@@ -7,18 +7,21 @@ const NavBar = () => {
         V / N <br />
         <span className="land-quote-div"> Shop What You Desire </span>
       </h1>
-      <a className="land-hamburgerBtn"> 
+      <a className="land-hamburgerBtn">
         <i className="fas fa-bars fa-lg"></i>
       </a>
       <div className="land-navbar-links">
         <ul className="ul-landing-page">
           <li className="li-landing-page">
-          <Link to='/' className="landing-page-link" > Home
+            <Link to="/" className="landing-page-link">
+              {" "}
+              Home
             </Link>
           </li>
           <li className="li-landing-page">
-          
-            <Link to='/shopNow' className="landing-page-link" > Shop Now
+            <Link to="/shopNow" className="landing-page-link">
+              {" "}
+              Shop Now
             </Link>
           </li>
         </ul>
@@ -43,15 +46,13 @@ const NavBar = () => {
         <a
           href="/Components-E-Com/wishlist.html"
           className="social-landing-page flex-column"
-        >     
+        >
           <i className="fa-solid fa-heart fa-lg"></i> Wishlist
         </a>
-        <a
-          href="/Components-E-Com/cart.html"
-          className="social-landing-page flex-column"
-        >      
+        <Link to="/cart" className="landing-page-link">
+          {" "}
           <i className="fa-solid fa-cart-shopping fa-lg"></i> Cart
-        </a>
+        </Link>
       </div>
     </nav>
   );

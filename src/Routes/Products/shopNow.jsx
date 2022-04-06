@@ -2,7 +2,7 @@ import { Filter } from "../../Components/Filters/filter.jsx";
 import { ProductListing } from "../../Components/ProductListing/productListing.jsx";
 import { useFetch } from "../../custom-hooks/useFetch.jsx";
 import { PriceSlider } from "../../Components/Pure-Functions/priceSlider.jsx";
-import { useProduct } from "../../Context/context.jsx";
+import { useProduct } from "../../Context/product.jsx";
 import { Categories } from "../../Components/Pure-Functions/category.jsx";
 import { Theme } from "../../Components/Pure-Functions/theme.jsx";
 import { Rating } from "../../Components/Pure-Functions/rating.jsx";

@@ -13,23 +13,23 @@ const Body = () => {
      
       <div className="bg-img-stretch"></div>
       <div className="spacer-3rem"></div>
-      <h2 className="text-align-center top-margin-7rem">
+      <h2 className="text-align-center">
         {" "}
         Featured Categories{" "}
       </h2>
       <div className="short-underline"></div>
-      <div className="grid-layout-4-col">
+      <div className="grid-layout-4-col" style={{margin:'0.5rem auto'}}>
         {error && <p> {error}</p>}
         {loader && <p> Loading... </p>}
         {categories &&
           categories?.map((categories) => (
-            <CategoryList categories={categories} />
+            <CategoryList categories={categories} key ={categories.id}/>
           ))}
       </div>
       <div className="spacer-3rem"></div>
-      <h2 className="text-align-center top-margin-7rem"> Featured Theme </h2>
+      <h2 className="text-align-center"> Featured Theme </h2>
       <div className="short-underline"></div>
-      <div className="grid-layout-4-col">
+      <div className="grid-layout-4-col" style={{margin:'0.5rem auto'}}>
         {error && <p> {error}</p>}
         {loader && <p> Loading... </p>}
         {categories &&
