@@ -1,7 +1,19 @@
+import { addTocart } from "../../Backend-Services/cartServices.jsx";
+import { useAuth } from "../../Context/authContext.jsx";
 import { useCart } from "../../Context/cart.jsx";
-import { Abbreviations } from "../../Reducer/reducer.jsx";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import './productListing.css';
+import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
+import { useWishlist } from "../../Context/wishlistContext.jsx";
 const ProductListing = ({ products }) => {
-  const { state, dispatch } = useCart();
+  const navigate = useNavigate();
+  const { token } = useAuth();
+  const { cartState, cartDispatch } = useCart();
+  const { productsInCart } = cartState;
+  console.log(productsInCart._id);
+  const{wishlistState, wishlistDispatch} = useWishlist();
+  const {productsInWishlist} = wishlistState;
   const {
     title,
     catchName,
@@ -13,6 +25,7 @@ const ProductListing = ({ products }) => {
     theme,
     img,
   } = products;
+  
   return (
     <>
       <div className="all-card-collection" style={{ margin: "0rem" }}>
@@ -43,22 +56,22 @@ const ProductListing = ({ products }) => {
             </p>
           </main>
           <footer className="footer-card">
-
-            <button
-              className="btn-primary-card"
-
-              onClick={() => {
-                dispatch({
-                  type: Abbreviations.ADD_TO_CART,
-                  payload: products,
-                });
-              }}
-            >
-              {" "}
-              Add to cart{" "}
-            </button>
-
-            <button className="icons-card">
+            {productsInCart.find((items) => items._id === products._id) ? (
+              <Link to='/cart'>
+              <button className="btn-primary-card">Go to cart</button>
+              </Link>
+            ) : (
+              <button
+                className="btn-primary-card"
+                onClick={() => {
+                  { token ? addTocart(token, products, cartDispatch) : navigate('/login')}
+                }}
+              >
+                {" "}
+                Add to cart{" "}
+              </button>
+            )}
+            <button className="icons-card" onClick={()=> addToWishlist(token, products, wishlistDispatch)}>
               {" "}
               <i className="fas fa-heart"></i>{" "}
             </button>

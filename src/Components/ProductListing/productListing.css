@@ -1,0 +1,7 @@
+.btn-primary-card, .icons-card {
+    border: 1rem;
+    padding: 1rem;
+    background-color: var(--white-color);
+    font-size: medium;
+    font-weight: bold
+}

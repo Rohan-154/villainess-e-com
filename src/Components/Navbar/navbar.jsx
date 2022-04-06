@@ -49,12 +49,12 @@ const NavBar = () => {
           </div>
         )}
 
-        <a
+        <Link to='/wishlist'
           href="/Components-E-Com/wishlist.html"
           className="social-landing-page flex-column"
         >
           <i className="fa-solid fa-heart fa-lg"></i> Wishlist
-        </a>
+        </Link>
        
         <Link to={token ? '/cart' : '/login'} className="landing-page-link">
           {" "}
