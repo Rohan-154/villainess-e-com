@@ -4,7 +4,6 @@ const FuncAddToCart = (state, action) => {
   );
   return {
     ...state,
-    itemsInCart: state.itemsInCart + 1,
     totalPrice: state.totalPrice + action.payload.price,
     discountPrice: state.discountPrice + action.payload.discardPrice,
     productsInCart: !productExist
@@ -20,6 +19,7 @@ const FuncAddToCart = (state, action) => {
             ? { ...items, qty: items.qty + 1 }
             : items
         ),
+    itemsInCart: state.itemsInCart + 1,
   };
 };
 export { FuncAddToCart };

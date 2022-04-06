@@ -8,6 +8,7 @@ import { Theme } from "../../Components/Pure-Functions/theme.jsx";
 import { Rating } from "../../Components/Pure-Functions/rating.jsx";
 import { Discount } from "../../Components/Pure-Functions/discount.jsx";
 import { Sort } from "../../Components/Pure-Functions/sort.jsx";
+import { Footer } from "../../Components/Footer/footer.jsx";
 const ShopNow = () => {
   const {
     data: products,
@@ -57,6 +58,7 @@ const ShopNow = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

@@ -1,7 +1,7 @@
 const DecreaseQuantity = (state,action) => {
   return {
     ...state,
-    itemsInCart: state.itemsInCart - 1,
+    // itemsInCart: state.itemsInCart - 1,
     totalPrice: state.totalPrice - action.payload.price,
     discountPrice: state.discountPrice - action.payload.discardPrice,
     productsInCart:

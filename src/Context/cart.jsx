@@ -8,6 +8,7 @@ const CartProvider = ({ children }) => {
     totalPrice: 0,
     discountPrice:0,
     productsInCart: [],
+    isEdit: false
   });
   return <CartContext.Provider value={{state,dispatch}}>{children}</CartContext.Provider>;
 };
