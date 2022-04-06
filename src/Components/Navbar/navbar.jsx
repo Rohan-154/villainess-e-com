@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/authContext";
-import { FiLogOut } from "react-icons/fi";
+import { useCart } from "../../Context/cart";
+import { useWishlist } from "../../Context/wishlistContext";
+import '../Navbar/navbar.css'
 const NavBar = () => {
   const { token, logOutHandler } = useAuth();
+  const { cartState } = useCart();
+  const { productsInCart } = cartState;
+  const {wishlistState} = useWishlist()
   return (
     <nav className="land-navbar">
       <h1 className="land-heading-title">
@@ -44,21 +49,35 @@ const NavBar = () => {
             <i class="fa-solid fa-user fa-lg"></i> Login
           </Link>
         ) : (
-          <div to="/login" className="social-landing-page flex-column" onClick={logOutHandler} style={{cursor:'pointer'}}> 
+          <div
+            to="/login"
+            className="social-landing-page flex-column"
+            onClick={logOutHandler}
+            style={{ cursor: "pointer" }}
+          >
             <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
           </div>
         )}
 
-        <Link to='/wishlist'
+        <Link
+          to={token ? "/wishlist" : "/login"}
           href="/Components-E-Com/wishlist.html"
           className="social-landing-page flex-column"
         >
-          <i className="fa-solid fa-heart fa-lg"></i> Wishlist
+          <div className="parent-badge-container">
+           <span><i className="fa-solid fa-heart fa-lg badge-wishlist"></i></span>
+           <span className="badge-e-com badge-count-wish"> {wishlistState.productsInWishlist.length}</span>
+           </div>
+         
         </Link>
-       
-        <Link to={token ? '/cart' : '/login'} className="landing-page-link">
+
+        <Link to={token ? "/cart" : "/login"} className="landing-page-link">
           {" "}
-          <i className="fa-solid fa-cart-shopping fa-lg"></i> Cart
+          <div  className="parent-badge-container">
+           <span><i className="fa-solid fa-cart-shopping fa-lg"></i></span>
+           <span className="badge-e-com badge-count-cart">{productsInCart.length}</span>
+           </div>
+          
         </Link>
       </div>
     </nav>

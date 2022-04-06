@@ -9,7 +9,7 @@ const CategoryList = ({ categories: { categoryName, img } }) => {
               {categoryName}
             </h3>
             <picture className="background-img-e-com">
-              <img src={img} alt="image" className="basic-image-e-land" />
+              <img src={img} alt="category-image" className="basic-image-e-land" />
             </picture>
           </main>
         </div>

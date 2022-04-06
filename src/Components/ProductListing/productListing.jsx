@@ -11,9 +11,7 @@ const ProductListing = ({ products }) => {
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
-  console.log(productsInCart._id);
-  const{wishlistState, wishlistDispatch} = useWishlist();
-  const {productsInWishlist} = wishlistState;
+  const{wishlistDispatch} = useWishlist();
   const {
     title,
     catchName,
@@ -44,11 +42,7 @@ const ProductListing = ({ products }) => {
             <p>
               {" "}
               ₹{price} <s>₹{discardPrice}</s>{" "}
-              <strong> ( {discount}% off )</strong>{" "}
-            </p>
-            <p>
-              {" "}
-              <strong> Deal of the Day</strong>
+              <strong> ( {Number((price/discardPrice) * 100).toFixed(0)}% off )</strong>{" "}
             </p>
             <p>
               {" "}

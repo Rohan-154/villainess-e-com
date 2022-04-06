@@ -13,7 +13,6 @@ const cartDataGet = async () => {
     console.log(error);
   }
 };
-// replace res with { data }
 const addTocart = async (token, product, cartDispatch) => {
   try {
     const res = await axios.post(

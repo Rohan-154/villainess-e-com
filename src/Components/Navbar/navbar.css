@@ -1,0 +1,17 @@
+.parent-badge-container {
+    font-size: 1.4rem;
+    padding: 0px 0.5rem;
+    position: relative;
+    display: inline-block;
+
+}
+
+.badge-e-com {
+    position: absolute;
+    top: -25px;
+    right: -18px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: var(--danger-message-color);
+    color: var(--white-color);
+}
