@@ -19,7 +19,7 @@ const FeatureTheme = () => {
             <picture className="background-img-e-com no-opacity">
               <img
                 src="https://villainess-e-store.netlify.app/Assets/punisher.jpg"
-                alt="image"
+                alt="theme-image"
                 className="basic-image-e-land"
               />
             </picture>
@@ -47,7 +47,7 @@ const FeatureTheme = () => {
             <picture className="background-img-e-com no-opacity">
               <img
                 src="https://villainess-e-store.netlify.app/Assets/daredevil-fire.jpg"
-                alt="image"
+                alt="theme-image"
                 className="basic-image-e-land"
               />
             </picture>
@@ -75,7 +75,7 @@ const FeatureTheme = () => {
             <picture className="background-img-e-com no-opacity">
               <img
                 src="https://villainess-e-store.netlify.app/Assets/venom.jpg"
-                alt="image"
+                alt="theme-image"
                 className="basic-image-e-land"
               />
             </picture>
@@ -103,7 +103,7 @@ const FeatureTheme = () => {
             <picture className="background-img-e-com no-opacity">
               <img
                 src="https://villainess-e-store.netlify.app/Assets/deadpool.jpg"
-                alt="image"
+                alt="theme-image"
                 className="basic-image-e-land"
               />
             </picture>

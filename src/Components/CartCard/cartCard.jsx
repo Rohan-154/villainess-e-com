@@ -50,7 +50,7 @@ const CartCard = () => {
                     <picture className="background-img">
                       <img
                         src={items.img}
-                        alt="image"
+                        alt="image-cart-items"
                         className="change-in-bg-width"
                       />
                     </picture>
