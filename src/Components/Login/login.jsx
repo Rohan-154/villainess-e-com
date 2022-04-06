@@ -1,7 +1,7 @@
 import { useAuth } from "../../Context/authContext";
 import { usePasswordToggle } from "../../custom-hooks/passwordToggle";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import '../Login/login.css';
+import "../Login/login.css";
 const Login = () => {
   const { loginHandler, logInData } = useAuth();
   const { passwordToggle, togglePassword } = usePasswordToggle(); //togglepassword is function
@@ -11,22 +11,26 @@ const Login = () => {
       <form className="submit-form" onSubmit={(e) => e.preventDefault()}>
         <input
           type="email"
-          id="input-id"
+          id="input-email"
           className="input-primary"
           placeholder="test@testing.com"
           value={logInData.email}
           name="email"
+          autoComplete="hidden"
+          readOnly
           required
         />
 
         <div className="eye-container">
           <input
             type={passwordToggle.type}
-            id="input-id"
+            id="input-password"
             className="input-primary spacer-1rem"
             placeholder="Enter your password here"
             name="password"
             value={logInData.password}
+            autoComplete="hidden"
+            readOnly
             required
           />
           <button className="eye-btn">

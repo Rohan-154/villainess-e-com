@@ -12,11 +12,13 @@ const WishlistCard = () => {
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
-  console.log("rohan", productsInWishlist);
   !token && navigate("/login");
   return (
     <div>
-      <h2 className="text-align-center top-margin-7rem" style={{marginTop:'9rem', fontSize: '1.5rem'}}>
+      <h2
+        className="text-align-center top-margin-7rem"
+        style={{ marginTop: "9rem", fontSize: "1.5rem" }}
+      >
         {" "}
         <i className="fas fa-heart red"></i> My Wishlist{" "}
       </h2>
@@ -24,7 +26,7 @@ const WishlistCard = () => {
       {productsInWishlist.length !== 0 ? (
         <div className="grid-layout-3-col">
           {productsInWishlist.map((items) => (
-            <div className="all-card-collection">
+            <div className="all-card-collection" key={items._id}>
               <div className="card-container">
                 <picture className="background-img">
                   <img
@@ -78,7 +80,10 @@ const WishlistCard = () => {
             className="responsive-img e-image-cart"
           />
           <Link to="/shopNow">
-            <button className="btn-login login-test" style={{ marginTop: "2rem" }}>
+            <button
+              className="btn-login login-test"
+              style={{ marginTop: "2rem" }}
+            >
               Explore Now
             </button>
           </Link>

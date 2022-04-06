@@ -11,34 +11,20 @@ const Body = () => {
   } = useFetch("/api/categories", "categories");
   return (
     <div>
-     
       <div className="bg-img-stretch"></div>
       <div className="spacer-3rem"></div>
-      <h2 className="text-align-center">
-        {" "}
-        Featured Categories{" "}
-      </h2>
+      <h2 className="text-align-center"> Featured Categories </h2>
       <div className="short-underline"></div>
-      <div className="grid-layout-4-col" style={{margin:'0.5rem auto'}}>
-        {error && <p> {error}</p>}
-        {loader && <p> Loading... </p>}
-        {categories &&
-          categories?.map((categories) => (
-            <CategoryList categories={categories} key ={categories._id}/>
-          ))}
+      <div className="grid-layout-4-col" style={{ margin: "0.5rem auto" }}>
+        <CategoryList />
       </div>
       <div className="spacer-3rem"></div>
       <h2 className="text-align-center"> Featured Theme </h2>
       <div className="short-underline"></div>
-      <div className="grid-layout-4-col" style={{margin:'0.5rem auto'}}>
-        {error && <p> {error}</p>}
-        {loader && <p> Loading... </p>}
-        {categories &&
-          categories?.map((categories) => (
-            <FeatureTheme categories={categories} key={categories._id} />
-          ))}
+      <div className="grid-layout-4-col" style={{ margin: "0.5rem auto" }}>
+        <FeatureTheme />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

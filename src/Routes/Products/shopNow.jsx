@@ -9,7 +9,6 @@ import { Rating } from "../../Components/Pure-Functions/rating.jsx";
 import { Discount } from "../../Components/Pure-Functions/discount.jsx";
 import { Sort } from "../../Components/Pure-Functions/sort.jsx";
 import { Footer } from "../../Components/Footer/footer.jsx";
-import '../Products/shopNow.css';
 const ShopNow = () => {
   const {
     data: products,
@@ -35,31 +34,25 @@ const ShopNow = () => {
     deadpool,
     loki
   );
-  const ratingFiltered = Rating(
-    themeFiltered,
-    state.rating
-  )
-  const discountFiltered = Discount(
-    ratingFiltered,
-    state.discount
-  )
-  const sortFiltered = Sort(discountFiltered, state.sortBy)
+  const ratingFiltered = Rating(themeFiltered, state.rating);
+  const discountFiltered = Discount(ratingFiltered, state.discount);
+  const sortFiltered = Sort(discountFiltered, state.sortBy);
   return (
     <>
       <div className="flex-wrap-shop">
         <Filter />
-        
-          <div className="grid-layout-3-col">
-            {error && <p> {error}</p>}
-            {loader && <p> Loading... </p>}
-            {sortFiltered &&
-              sortFiltered?.map((products) => (
-                <ProductListing products={products} key={products._id} />
-              ))}
-          </div>
+
+        <div className="grid-layout-3-col">
+          {error && <p> {error}</p>}
+          {loader && <p> Loading... </p>}
+          {sortFiltered &&
+            sortFiltered?.map((products) => (
+              <ProductListing products={products} key={products._id} />
+            ))}
         </div>
-      
-      <Footer/>
+      </div>
+
+      <Footer />
     </>
   );
 };

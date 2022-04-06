@@ -101,7 +101,7 @@ const reducerFunction = (state, action) => {
       };
     case Abbreviations.CLEARFILTER:
       return {
-        sortBy: '',
+        sortBy: "",
         price: 4000,
         categories: {
           clothing: false,

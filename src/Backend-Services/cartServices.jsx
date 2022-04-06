@@ -1,18 +1,6 @@
 import axios from "axios";
 
 import { Abbreviations } from "../Components/Abbreviations";
-
-const cartDataGet = async () => {
-  try {
-    return await axios.post("/api/user/cart", {
-      headers: {
-        authorization: token,
-      },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
 const addTocart = async (token, product, cartDispatch) => {
   try {
     const res = await axios.post(

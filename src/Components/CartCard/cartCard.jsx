@@ -132,7 +132,7 @@ const CartCard = () => {
             ))}
           </div>
           <div className="flex-wrap-column">
-            <h3 style={{margin:'1rem'}}> Coupons </h3>
+            <h3 style={{ margin: "1rem" }}> Coupons </h3>
             <button className="btn-login login-test" type="button">
               <i className="fa-solid fa-tag"></i> Apply Coupon
             </button>
@@ -170,7 +170,10 @@ const CartCard = () => {
             className="responsive-img e-image-cart"
           />
           <Link to="/shopNow">
-            <button className="btn-login login-test" style={{ marginTop: "2rem" }}>
+            <button
+              className="btn-login login-test"
+              style={{ marginTop: "2rem" }}
+            >
               Explore Now
             </button>
           </Link>

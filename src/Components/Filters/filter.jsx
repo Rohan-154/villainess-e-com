@@ -12,14 +12,17 @@ const Filter = () => {
     <>
       <h3 className="res-top">
         Filter
-        <button onClick={()=> setFilter(filter=> !filter)} className='hamburger-filter'>
+        <button
+          onClick={() => setFilter((filter) => !filter)}
+          className="hamburger-filter"
+        >
           {" "}
           <i className="fa-solid fa-bars" id="btn-toggle-top">
             {" "}
           </i>
         </button>
       </h3>
-      <div className={`filter-wrapper ${ filter ? 'active-top' : ''}`}>
+      <div className={`filter-wrapper ${filter ? "active-top" : ""}`}>
         <div className="filter-class">
           <h3>FILTERS</h3>
           <button
@@ -170,7 +173,7 @@ const Filter = () => {
                     dispatch({ type: Abbreviations.ELECTRONICS });
                   }}
                 />{" "}
-               Electronics
+                Electronics
               </label>
             </li>
             <div className="spacer-1rem"></div>

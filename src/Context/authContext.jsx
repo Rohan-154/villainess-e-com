@@ -4,7 +4,9 @@ import { useNavigate } from "react-router";
 
 const AuthProvider = ({ children }) => {
   const localStorageToken = JSON.parse(localStorage.getItem("loginToken"));
-  const [token, setToken] = useState(localStorageToken && localStorageToken.token);
+  const [token, setToken] = useState(
+    localStorageToken && localStorageToken.token
+  );
   const [userBio, setuserBio] = useState();
   const [logInData, setLogInData] = useState({
     email: "rohandubey154@gmail.com",
@@ -27,24 +29,29 @@ const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
-  const logOutHandler = ()=>{
-      setTimeout(() => {
-          localStorage.removeItem('loginToken');
-          setToken('');
-          setuserBio({});
-          navigate('/')
-      }, 1000);
+  const logOutHandler = () => {
+    setTimeout(() => {
+      localStorage.removeItem("loginToken");
+      setToken("");
+      setuserBio({});
+      navigate("/");
+    }, 1000);
   };
-  return <AuthContext.Provider value={{
-      token,
-      setToken,
-      loginHandler,
-      logInData,
-      logOutHandler,
-      userBio
-  }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider
+      value={{
+        token,
+        setToken,
+        loginHandler,
+        logInData,
+        logOutHandler,
+        userBio,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
-
-const useAuth = () => useContext(AuthContext);
 const AuthContext = createContext();
-export{useAuth, AuthProvider}
+const useAuth = () => useContext(AuthContext);
+export { useAuth, AuthProvider };

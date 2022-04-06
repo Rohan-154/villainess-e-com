@@ -16,11 +16,7 @@ const getWishlistData = async (token, wishlistDispatch) => {
   }
 };
 
-const addToWishlist = async (
-  token,
-  product,
-  wishlistDispatch,
-) => {
+const addToWishlist = async (token, product, wishlistDispatch) => {
   try {
     const res = await axios.post(
       "/api/user/wishlist",
@@ -31,16 +27,15 @@ const addToWishlist = async (
         },
       }
     );
-    wishlistDispatch({ type: Abbreviations.ADD_TO_WISHLIST, payload: res.data.wishlist });
+    wishlistDispatch({
+      type: Abbreviations.ADD_TO_WISHLIST,
+      payload: res.data.wishlist,
+    });
   } catch (error) {
     console.log(error);
   }
 };
-const removeFromWishlist = async (
-  token,
-  productId,
-  wishlistDispatch,
-) => {
+const removeFromWishlist = async (token, productId, wishlistDispatch) => {
   if (!token) {
     navigate("/login");
   } else {
@@ -57,4 +52,4 @@ const removeFromWishlist = async (
     }
   }
 };
-export {getWishlistData, addToWishlist, removeFromWishlist}
+export { getWishlistData, addToWishlist, removeFromWishlist };

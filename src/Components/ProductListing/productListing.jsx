@@ -3,27 +3,16 @@ import { useAuth } from "../../Context/authContext.jsx";
 import { useCart } from "../../Context/cart.jsx";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import './productListing.css';
+import "./productListing.css";
 import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
 import { useWishlist } from "../../Context/wishlistContext.jsx";
-import { useState } from "react/cjs/react.production.min";
 const ProductListing = ({ products }) => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
   const { wishlistDispatch } = useWishlist();
-  const {
-    title,
-    catchName,
-    price,
-    discardPrice,
-    categoryName,
-    discount,
-    rating,
-    theme,
-    img,
-  } = products;
+  const { title, catchName, price, discardPrice, rating, img } = products;
   return (
     <>
       <div className="all-card-collection">
@@ -42,7 +31,10 @@ const ProductListing = ({ products }) => {
             <p>
               {" "}
               ₹{price} <s>₹{discardPrice}</s>{" "}
-              <strong> ( {Number((price / discardPrice) * 100).toFixed(0)}% off )</strong>{" "}
+              <strong>
+                {" "}
+                ( {Number((price / discardPrice) * 100).toFixed(0)}% off )
+              </strong>{" "}
             </p>
             <p>
               {" "}
@@ -51,21 +43,32 @@ const ProductListing = ({ products }) => {
           </main>
           <footer className="footer-card">
             {productsInCart.find((items) => items._id === products._id) ? (
-              <Link to='/cart'>
+              <Link to="/cart">
                 <button className="btn-primary-card">Go to cart</button>
               </Link>
             ) : (
               <button
                 className="btn-primary-card"
                 onClick={() => {
-                  { token ? addTocart(token, products, cartDispatch) : navigate('/login') }
+                  {
+                    token
+                      ? addTocart(token, products, cartDispatch)
+                      : navigate("/login");
+                  }
                 }}
               >
                 {" "}
                 Add to cart{" "}
               </button>
             )}
-            <button className="icons-card" onClick={() => { token ? addToWishlist(token, products, wishlistDispatch) : navigate('/login')}}>
+            <button
+              className="icons-card"
+              onClick={() => {
+                token
+                  ? addToWishlist(token, products, wishlistDispatch)
+                  : navigate("/login");
+              }}
+            >
               {" "}
               <i className="fas fa-heart"></i>{" "}
             </button>

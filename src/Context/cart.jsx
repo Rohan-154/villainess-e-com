@@ -3,9 +3,13 @@ import { reducerFunction } from "../Reducer/cartReducer.jsx";
 
 const CartProvider = ({ children }) => {
   const [cartState, cartDispatch] = useReducer(reducerFunction, {
-    productsInCart: []
+    productsInCart: [],
   });
-  return <CartContext.Provider value={{cartState,cartDispatch}}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={{ cartState, cartDispatch }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 const useCart = () => useContext(CartContext);

@@ -3,10 +3,12 @@
     justify-content: space-between;
     margin: 8rem 2rem 1rem;
 }
-.hamburger-filter{
+
+.hamburger-filter {
     border: none;
     background-color: var(--light-gray);
 }
+
 .filter-wrapper {
     max-width: 20rem;
 }
@@ -69,10 +71,12 @@
 .slider-ranger {
     width: 17rem;
 }
-.res-top{
+
+.res-top {
     margin-top: 9rem;
     min-width: 21rem;
 }
+
 @media screen and (max-width: 750px) {
     .flex-wrap-shop {
         display: block;
