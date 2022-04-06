@@ -24,7 +24,7 @@ const Body = () => {
         {loader && <p> Loading... </p>}
         {categories &&
           categories?.map((categories) => (
-            <CategoryList categories={categories} key ={categories.id}/>
+            <CategoryList categories={categories} key ={categories._id}/>
           ))}
       </div>
       <div className="spacer-3rem"></div>
@@ -35,7 +35,7 @@ const Body = () => {
         {loader && <p> Loading... </p>}
         {categories &&
           categories?.map((categories) => (
-            <FeatureTheme categories={categories} />
+            <FeatureTheme categories={categories} key={categories._id} />
           ))}
       </div>
       <Footer/>

@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
       );
       setToken(data.encodedToken);
       setuserBio(data.foundUser);
-      navigate("/");
+      navigate("/shopNow");
     } catch (error) {
       console.log(error);
     }

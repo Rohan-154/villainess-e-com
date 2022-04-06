@@ -31,12 +31,12 @@ const reducerFunction = (state, action) => {
           toys: !state.categories.toys,
         },
       };
-    case Abbreviations.MOBILECOVERS:
+    case Abbreviations.ELECTRONICS:
       return {
         ...state,
         categories: {
           ...state.categories,
-          MobileCovers: !state.categories.MobileCovers,
+          electronics: !state.categories.electronics,
         },
       };
     case Abbreviations.PUNISHER:
@@ -107,7 +107,7 @@ const reducerFunction = (state, action) => {
           clothing: false,
           accessories: false,
           toys: false,
-          MobileCovers: false,
+          electronics: false,
         },
         discount: "",
         rating: "",

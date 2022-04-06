@@ -1,24 +1,25 @@
 import "./filter.css";
 import { Abbreviations } from "../../Reducer/reducer.jsx";
 import { useProduct } from "../../Context/product.jsx";
-import { useState } from "react/cjs/react.production.min";
+import { useState } from "react";
 const Filter = () => {
   const { state, dispatch } = useProduct();
   const { sortBy, price, categories, discount, rating, theme } = state;
-  const { clothing, accessories, toys, MobileCovers } = categories;
+  const { clothing, accessories, toys, electronics } = categories;
   const { punisher, daredevil, venom, deadpool, loki } = theme;
+  const [filter, setFilter] = useState(false);
   return (
     <>
       <h3 className="res-top">
         Filter
-        <a href="#">
+        <button onClick={()=> setFilter(filter=> !filter)} className='hamburger-filter'>
           {" "}
           <i className="fa-solid fa-bars" id="btn-toggle-top">
             {" "}
           </i>
-        </a>
+        </button>
       </h3>
-      <div className="filter-wrapper">
+      <div className={`filter-wrapper ${ filter ? 'active-top' : ''}`}>
         <div className="filter-class">
           <h3>FILTERS</h3>
           <button
@@ -158,18 +159,18 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label htmlFor="MobileCovers" className="label-selector">
+              <label htmlFor="electronics" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
-                  id="MobileCovers"
+                  id="electronics"
                   name="toys"
-                  checked={MobileCovers}
+                  checked={electronics}
                   onChange={() => {
-                    dispatch({ type: Abbreviations.MOBILECOVERS });
+                    dispatch({ type: Abbreviations.ELECTRONICS });
                   }}
                 />{" "}
-                Mobile Covers
+               Electronics
               </label>
             </li>
             <div className="spacer-1rem"></div>

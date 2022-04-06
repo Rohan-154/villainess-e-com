@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
 import { useWishlist } from "../../Context/wishlistContext";
@@ -7,17 +8,18 @@ const NavBar = () => {
   const { token, logOutHandler } = useAuth();
   const { cartState } = useCart();
   const { productsInCart } = cartState;
-  const {wishlistState} = useWishlist()
+  const {wishlistState} = useWishlist();
+  const [nav, setNav] = useState(false);
   return (
     <nav className="land-navbar">
       <h1 className="land-heading-title">
         V / N <br />
         <span className="land-quote-div"> Shop What You Desire </span>
       </h1>
-      <a className="land-hamburgerBtn">
+      <button className="land-hamburgerBtn" onClick={()=> setNav(nav=> !nav)}>
         <i className="fas fa-bars fa-lg"></i>
-      </a>
-      <div className="land-navbar-links">
+      </button>
+     <div className={`land-navbar-links ${nav ? " active" : ""}`}>
         <ul className="ul-landing-page">
           <li className="li-landing-page">
             <Link to="/" className="landing-page-link">
@@ -33,7 +35,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <div className="land-social-link-nav">
+      <div className="land-social-link-nav-e">
         <div className="search-box">
           <button className="btn-search">
             <i className="fas fa-search"></i>
@@ -46,7 +48,7 @@ const NavBar = () => {
         </div>
         {!token ? (
           <Link to="/login" className="social-landing-page flex-column">
-            <i class="fa-solid fa-user fa-lg"></i> Login
+            <i className="fa-solid fa-user fa-lg"></i> Login
           </Link>
         ) : (
           <div
@@ -55,7 +57,7 @@ const NavBar = () => {
             onClick={logOutHandler}
             style={{ cursor: "pointer" }}
           >
-            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            <i className="fa-solid fa-arrow-right-from-bracket"></i> Logout
           </div>
         )}
 

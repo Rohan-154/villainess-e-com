@@ -3,7 +3,7 @@ const Abbreviations = {
     CLOTHING: "clothing",
     ACCESSORIES: "accessories",
     TOYS: "toys",
-    MOBILECOVERS: "MobileCovers",
+    ELECTRONICS: "electronics",
     PUNISHER: "punisher",
     DAREDEVIL: "daredevil",
     VENOM: "venom",

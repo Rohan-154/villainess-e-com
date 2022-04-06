@@ -16,25 +16,25 @@ const WishlistCard = () => {
   !token && navigate("/login");
   return (
     <div>
-      <h2 class="text-align-center top-margin-7rem">
+      <h2 className="text-align-center top-margin-7rem" style={{marginTop:'9rem', fontSize: '1.5rem'}}>
         {" "}
-        <i class="fas fa-heart red"></i> My Wishlist{" "}
+        <i className="fas fa-heart red"></i> My Wishlist{" "}
       </h2>
-      <div class="short-underline"></div>
+      <div className="short-underline"></div>
       {productsInWishlist.length !== 0 ? (
-        <div class="grid-layout-3-col">
+        <div className="grid-layout-3-col">
           {productsInWishlist.map((items) => (
-            <div class="all-card-collection">
-              <div class="card-container">
-                <picture class="background-img">
+            <div className="all-card-collection">
+              <div className="card-container">
+                <picture className="background-img">
                   <img
                     src={items.img}
                     alt="imageOfProducts"
-                    class="basic-image"
+                    className="basic-image"
                   />
                 </picture>
-                <main class="main-body">
-                  <h3 class="card-title"> {items.title} </h3>
+                <main className="main-body">
+                  <h3 className="card-title"> {items.title} </h3>
                   <p>( {items.catchName} )</p>
 
                   <p>
@@ -48,17 +48,17 @@ const WishlistCard = () => {
                   </p>
                   <p>
                     {" "}
-                    {items.rating} <i class="fa-solid fa-star"></i> | 20{" "}
+                    {items.rating} <i className="fa-solid fa-star"></i> | 20{" "}
                   </p>
                 </main>
-                <footer class="footer-card">
+                <footer className="footer-card">
                   {productsInCart.find((item) => item._id === items._id) ? (
                     <Link to="/cart">
-                      <button class="btn-primary-card"> Go to cart </button>{" "}
+                      <button className="btn-primary-card"> Go to cart </button>{" "}
                     </Link>
                   ) : (
                     <button
-                      class="btn-primary-card"
+                      className="btn-primary-card"
                       onClick={() => addTocart(token, items, cartDispatch)}
                     >
                       {" "}
@@ -75,10 +75,10 @@ const WishlistCard = () => {
           <img
             src="https://2.bp.blogspot.com/-QfSOClZc8r0/XNr6srFlzjI/AAAAAAAAGlA/lzs505eFFiEdyAytzKkMabdUTihKywcqwCLcBGAs/s1600/EXAM360%2B-%2BNo%2BWishlist.png"
             alt="cart-empty-img"
-            class="responsive-img e-image-cart"
+            className="responsive-img e-image-cart"
           />
           <Link to="/shopNow">
-            <button class="btn-login login-test" style={{ marginTop: "2rem" }}>
+            <button className="btn-login login-test" style={{ marginTop: "2rem" }}>
               Explore Now
             </button>
           </Link>

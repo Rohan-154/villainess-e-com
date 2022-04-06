@@ -9,6 +9,7 @@ import { Rating } from "../../Components/Pure-Functions/rating.jsx";
 import { Discount } from "../../Components/Pure-Functions/discount.jsx";
 import { Sort } from "../../Components/Pure-Functions/sort.jsx";
 import { Footer } from "../../Components/Footer/footer.jsx";
+import '../Products/shopNow.css';
 const ShopNow = () => {
   const {
     data: products,
@@ -16,7 +17,7 @@ const ShopNow = () => {
     loader,
   } = useFetch("/api/products", "products");
   const { state } = useProduct();
-  const { clothing, accessories, toys, MobileCovers } = state.categories;
+  const { clothing, accessories, toys, electronics } = state.categories;
   const { punisher, daredevil, venom, deadpool, loki } = state.theme;
   const priceFiltered = PriceSlider(products, state.price);
   const categoryFiltered = Categories(
@@ -24,7 +25,7 @@ const ShopNow = () => {
     clothing,
     accessories,
     toys,
-    MobileCovers
+    electronics
   );
   const themeFiltered = Theme(
     categoryFiltered,
@@ -47,17 +48,17 @@ const ShopNow = () => {
     <>
       <div className="flex-wrap-shop">
         <Filter />
-        <div className="top-margin-7rem">
+        
           <div className="grid-layout-3-col">
             {error && <p> {error}</p>}
             {loader && <p> Loading... </p>}
             {sortFiltered &&
               sortFiltered?.map((products) => (
-                <ProductListing products={products} key={products.id} />
+                <ProductListing products={products} key={products._id} />
               ))}
           </div>
         </div>
-      </div>
+      
       <Footer/>
     </>
   );
