@@ -1,17 +1,24 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-} from "react";
+import { createContext, useContext, useReducer } from "react";
 import { reducerFunction } from "../Reducer/reducer";
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunction, {
     sortBy: "",
     price: 4000,
-    categories: { clothing: false, accessories: false, toys: false, MobileCovers:false },
+    categories: {
+      clothing: false,
+      accessories: false,
+      toys: false,
+      electronics: false,
+    },
     discount: "",
     rating: "",
-    theme:{ punisher: false, daredevil: false, venom: false, deadpool:false, loki:false }
+    theme: {
+      punisher: false,
+      daredevil: false,
+      venom: false,
+      deadpool: false,
+      loki: false,
+    },
   });
   return (
     <>

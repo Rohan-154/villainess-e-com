@@ -3,7 +3,7 @@ import { useAuth } from "../../Context/authContext.jsx";
 import { useCart } from "../../Context/cart.jsx";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import './productListing.css';
+import "./productListing.css";
 import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
 import { useWishlist } from "../../Context/wishlistContext.jsx";
 const ProductListing = ({ products }) => {
@@ -11,29 +11,16 @@ const ProductListing = ({ products }) => {
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
-  console.log(productsInCart._id);
-  const{wishlistState, wishlistDispatch} = useWishlist();
-  const {productsInWishlist} = wishlistState;
-  const {
-    title,
-    catchName,
-    price,
-    discardPrice,
-    categoryName,
-    discount,
-    rating,
-    theme,
-    img,
-  } = products;
-  
+  const { wishlistDispatch } = useWishlist();
+  const { title, catchName, price, discardPrice, rating, img } = products;
   return (
     <>
-      <div className="all-card-collection" style={{ margin: "0rem" }}>
+      <div className="all-card-collection">
         <div className="card-container">
           <picture className="background-img">
             <img
               src={img}
-              alt="image"
+              alt="-products-image"
               className="basic-image"
               style={{ width: "20rem" }}
             />
@@ -44,11 +31,10 @@ const ProductListing = ({ products }) => {
             <p>
               {" "}
               ₹{price} <s>₹{discardPrice}</s>{" "}
-              <strong> ( {discount}% off )</strong>{" "}
-            </p>
-            <p>
-              {" "}
-              <strong> Deal of the Day</strong>
+              <strong>
+                {" "}
+                ( {Number((price / discardPrice) * 100).toFixed(0)}% off )
+              </strong>{" "}
             </p>
             <p>
               {" "}
@@ -57,21 +43,32 @@ const ProductListing = ({ products }) => {
           </main>
           <footer className="footer-card">
             {productsInCart.find((items) => items._id === products._id) ? (
-              <Link to='/cart'>
-              <button className="btn-primary-card">Go to cart</button>
+              <Link to="/cart">
+                <button className="btn-primary-card">Go to cart</button>
               </Link>
             ) : (
               <button
                 className="btn-primary-card"
                 onClick={() => {
-                  { token ? addTocart(token, products, cartDispatch) : navigate('/login')}
+                  {
+                    token
+                      ? addTocart(token, products, cartDispatch)
+                      : navigate("/login");
+                  }
                 }}
               >
                 {" "}
                 Add to cart{" "}
               </button>
             )}
-            <button className="icons-card" onClick={()=> addToWishlist(token, products, wishlistDispatch)}>
+            <button
+              className="icons-card"
+              onClick={() => {
+                token
+                  ? addToWishlist(token, products, wishlistDispatch)
+                  : navigate("/login");
+              }}
+            >
               {" "}
               <i className="fas fa-heart"></i>{" "}
             </button>

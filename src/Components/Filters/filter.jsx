@@ -1,27 +1,40 @@
 import "./filter.css";
 import { Abbreviations } from "../../Reducer/reducer.jsx";
 import { useProduct } from "../../Context/product.jsx";
+import { useState } from "react";
 const Filter = () => {
   const { state, dispatch } = useProduct();
   const { sortBy, price, categories, discount, rating, theme } = state;
-  const { clothing, accessories, toys, MobileCovers } = categories;
+  const { clothing, accessories, toys, electronics } = categories;
   const { punisher, daredevil, venom, deadpool, loki } = theme;
-
+  const [filter, setFilter] = useState(false);
   return (
     <>
       <h3 className="res-top">
         Filter
-        <a href="#">
+        <button
+          onClick={() => setFilter((filter) => !filter)}
+          className="hamburger-filter"
+        >
           {" "}
           <i className="fa-solid fa-bars" id="btn-toggle-top">
             {" "}
           </i>
-        </a>
+        </button>
       </h3>
-      <div className="filter-wrapper">
+      <div className={`filter-wrapper ${filter ? "active-top" : ""}`}>
         <div className="filter-class">
           <h3>FILTERS</h3>
-          <button className="create-acc underline" onClick={()=>dispatch({type:Abbreviations.CLEARFILTER})} style={{border:'none', backgroundColor:'#e0e0eb', cursor:'pointer', fontWeight:'bold'}}>
+          <button
+            className="create-acc underline"
+            onClick={() => dispatch({ type: Abbreviations.CLEARFILTER })}
+            style={{
+              border: "none",
+              backgroundColor: "#e0e0eb",
+              cursor: "pointer",
+              fontWeight: "bold",
+            }}
+          >
             CLEAR ALL
           </button>
         </div>
@@ -68,24 +81,32 @@ const Filter = () => {
             <div className="spacer-1rem"></div>
             <li>
               <label htmlFor="sort-highToLow" className="label-selector">
-                <input type="radio" name="sort" value="highToLow" 
-                id="sort-highToLow" checked={state.sortBy === Abbreviations.HIGHTOLOW}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.HIGHTOLOW})
-                }}
-                /> Price High
-                to Low
+                <input
+                  type="radio"
+                  name="sort"
+                  value="highToLow"
+                  id="sort-highToLow"
+                  checked={sortBy === Abbreviations.HIGHTOLOW}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.HIGHTOLOW });
+                  }}
+                />{" "}
+                Price High to Low
               </label>
             </li>
             <li>
               <label htmlFor="sort-lowToHigh" className="label-selector">
-                <input type="radio" name="sort" value="lowToHigh" 
-                id="sort-lowToHigh" checked={state.sortBy === Abbreviations.LOWTOHIGH}
-                onChange={()=>{
-                  dispatch({type:Abbreviations.LOWTOHIGH})
-                }}
-                /> Price Low
-                to High
+                <input
+                  type="radio"
+                  name="sort"
+                  value="lowToHigh"
+                  id="sort-lowToHigh"
+                  checked={sortBy === Abbreviations.LOWTOHIGH}
+                  onChange={() => {
+                    dispatch({ type: Abbreviations.LOWTOHIGH });
+                  }}
+                />{" "}
+                Price Low to High
               </label>
             </li>
             <div className="spacer-1rem"></div>
@@ -141,18 +162,18 @@ const Filter = () => {
               </label>
             </li>
             <li>
-              <label htmlFor="MobileCovers" className="label-selector">
+              <label htmlFor="electronics" className="label-selector">
                 <input
                   type="checkbox"
                   className="checkbox-select"
-                  id="MobileCovers"
+                  id="electronics"
                   name="toys"
-                  checked={MobileCovers}
+                  checked={electronics}
                   onChange={() => {
-                    dispatch({ type: Abbreviations.MOBILECOVERS });
+                    dispatch({ type: Abbreviations.ELECTRONICS });
                   }}
                 />{" "}
-                Mobile Covers
+                Electronics
               </label>
             </li>
             <div className="spacer-1rem"></div>
@@ -164,54 +185,78 @@ const Filter = () => {
             <div className="spacer-1rem"></div>
             <li>
               <label htmlFor="4-star" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="4-star"
-                name="radio-discount"
-                value='4'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.RATING, value:e.target.value})
-                }}
-                /> 4{" "}
-                <i className="fa-solid fa-star"></i> & above
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="4-star"
+                  name="radio-rating"
+                  checked={rating === 4}
+                  value="4"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.RATING,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                4 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <li>
-            <label htmlFor="3-star" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="3-star"
-                name="radio-discount"
-                value='3'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.RATING, value:e.target.value})
-                }}
-                /> 3{" "}
-                <i className="fa-solid fa-star"></i> & above
+              <label htmlFor="3-star" className="label-selector">
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="3-star"
+                  name="radio-rating"
+                  checked={rating === 3}
+                  value="3"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.RATING,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                3 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <li>
-            <label htmlFor="2-star" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="2-star"
-                name="radio-discount"
-                value='2'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.RATING, value:e.target.value})
-                }}
-                /> 2{" "}
-                <i className="fa-solid fa-star"></i> & above
+              <label htmlFor="2-star" className="label-selector">
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="2-star"
+                  name="radio-rating"
+                  checked={rating === 2}
+                  value="2"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.RATING,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                2 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <li>
-            <label htmlFor="1-star" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="1-star"
-                name="radio-discount"
-                value='1'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.RATING, value:e.target.value})
-                }}
-                /> 1{" "}
-                <i className="fa-solid fa-star"></i> & above
+              <label htmlFor="1-star" className="label-selector">
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="1-star"
+                  name="radio-rating"
+                  checked={rating === 1}
+                  value="1"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.RATING,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                1 <i className="fa-solid fa-star"></i> & above
               </label>
             </li>
             <div className="spacer-1rem"></div>
@@ -223,50 +268,78 @@ const Filter = () => {
             <div className="spacer-1rem"></div>
             <li>
               <label htmlFor="40%" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="40%"
-                name="radio-discount"
-                value='40'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
-                }}
-                /> 40% & above
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="40%"
+                  name="radio-discount"
+                  checked={discount === 40}
+                  value="40"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.DISCOUNT,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                40% & above
               </label>
             </li>
             <li>
-            <label htmlFor="30%" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="30%"
-                name="radio-discount"
-                value='30'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
-                }}
-                /> 30% & above
+              <label htmlFor="30%" className="label-selector">
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="30%"
+                  name="radio-discount"
+                  checked={discount === 30}
+                  value="30"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.DISCOUNT,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                30% & above
               </label>
             </li>
             <li>
-            <label htmlFor="20%" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="20%"
-                name="radio-discount"
-                value='20'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
-                }}
-                /> 20% & above
+              <label htmlFor="20%" className="label-selector">
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="20%"
+                  name="radio-discount"
+                  checked={discount === 20}
+                  value="20"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.DISCOUNT,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                20% & above
               </label>
             </li>
             <li>
-            <label htmlFor="10%" className="label-selector">
-                <input type="radio" className="checkbox-select" 
-                id="10%"
-                name="radio-discount"
-                value='10'
-                onChange={(e)=>{
-                  dispatch({type: Abbreviations.DISCOUNT, value:e.target.value})
-                }}
-                /> 10% & above
+              <label htmlFor="10%" className="label-selector">
+                <input
+                  type="radio"
+                  className="checkbox-select"
+                  id="10%"
+                  name="radio-discount"
+                  checked={discount === 10}
+                  value="10"
+                  onChange={(e) => {
+                    dispatch({
+                      type: Abbreviations.DISCOUNT,
+                      value: e.target.value,
+                    });
+                  }}
+                />{" "}
+                10% & above
               </label>
             </li>
             <div className="spacer-1rem"></div>

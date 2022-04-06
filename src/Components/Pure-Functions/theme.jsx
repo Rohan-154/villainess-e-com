@@ -1,5 +1,5 @@
-const Theme = (products, punisher, daredevil,venom,deadpool,loki) => {
-    let FilterProducts = [];
+const Theme = (products, punisher, daredevil, venom, deadpool, loki) => {
+  let FilterProducts = [];
   if (
     punisher === false &&
     daredevil === false &&
@@ -28,9 +28,7 @@ const Theme = (products, punisher, daredevil,venom,deadpool,loki) => {
     FilterProducts.push(...newList);
   }
   if (deadpool) {
-    let newList = products.filter(
-      (items) => "deadpool" === items.theme
-    );
+    let newList = products.filter((items) => "deadpool" === items.theme);
     FilterProducts.push(...newList);
   }
   if (loki) {
@@ -42,5 +40,5 @@ const Theme = (products, punisher, daredevil,venom,deadpool,loki) => {
 
   return FilterProducts;
 };
- 
-export  {Theme};
+
+export { Theme };

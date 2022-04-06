@@ -1,4 +1,3 @@
-// import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import { Body } from "./Routes/homeBody/body.jsx";
@@ -10,15 +9,14 @@ import { WishlistCard } from "./Components/WishlistCard/wishlistCard.jsx";
 function App() {
   return (
     <div className="App">
-       <NavBar />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/shopNow" element={<ShopNow />} />
         <Route path="/cart" element={<CartCard />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/wishlist" element={<WishlistCard/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/wishlist" element={<WishlistCard />} />
         <Route path="/mock" element={<Mockman />} />
-
       </Routes>
     </div>
   );

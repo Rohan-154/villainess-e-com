@@ -1,0 +1,36 @@
+.divEmpty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+}
+
+.e-image-cart {
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+.responsive-img {
+    max-width: 20rem;
+}
+
+.cart-content-wrapper {
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width:768px) {
+    .cart-title {
+        margin-top: 9rem;
+        font-size: 1.5rem;
+    }
+
+    .address-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .flex-wrap-column {
+        align-items: center;
+    }
+}

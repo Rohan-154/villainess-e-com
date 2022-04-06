@@ -35,7 +35,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Mobile-Covers",
+    categoryName: "accessories",
     description:
       "Get your favorite anti-hero theme based mobile covers for your iPhone and android phones.",
       img: "https://villainess-e-store.netlify.app/Assets/category-4.jpg",

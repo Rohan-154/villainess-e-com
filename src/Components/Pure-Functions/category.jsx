@@ -1,10 +1,10 @@
-const Categories = (products, clothing, accessories, toys, MobileCovers) => {
+const Categories = (products, clothing, accessories, toys, electronics) => {
   let FilterProducts = [];
   if (
     clothing === false &&
     accessories === false &&
     toys === false &&
-    MobileCovers === false
+    electronics === false
   ) {
     return products;
   }
@@ -26,9 +26,9 @@ const Categories = (products, clothing, accessories, toys, MobileCovers) => {
     );
     FilterProducts.push(...newList);
   }
-  if (MobileCovers) {
+  if (electronics) {
     let newList = products.filter(
-      (items) => "MobileCovers" === items.categoryName
+      (items) => "electronics" === items.categoryName
     );
     FilterProducts.push(...newList);
   }
