@@ -20,7 +20,7 @@ const ProductListing = ({ products }) => {
           <picture className="background-img">
             <img
               src={img}
-              alt="image"
+              alt="-products-image"
               className="basic-image"
               style={{ width: "20rem" }}
             />
