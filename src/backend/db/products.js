@@ -40,7 +40,7 @@ export const products = [
     discount: 50,
     rating: 5,
     theme: "venom",
-    img: "http://walyou.com/wp-content/uploads//2013/07/Venom-Bot-e1373904509760.jpg",
+    img: "https://www.ubuy.co.in/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNzFNMWpOMEtUT0wuX0FDX1NMMTUwMF8uanBn.jpg",
   },
   {
     _id: uuid(),
