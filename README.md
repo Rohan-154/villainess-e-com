@@ -41,7 +41,7 @@ Checkout the live website [here](https://villainess-e-com.netlify.app/)
 
 ## Preview
 
-<img src="/src/assets/Preview.gif" alt="Villainess Ecommerce store preview" />
+<img src="/src/Assets/preview.gif" alt="Villainess Ecommerce store preview" />
 
 
 
