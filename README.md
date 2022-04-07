@@ -35,7 +35,7 @@ Checkout the live website [here](https://villainess-e-com.netlify.app/)
 - Villainess Component Library
 - React Router v6
 - Images from internet.
-- Illustrations different websites.
+- Illustrations from different websites.
 
 ---
 
