@@ -2,7 +2,7 @@ import { useFetch } from "../../custom-hooks/useFetch";
 import { CategoryList } from "../../Components/CategoryList/categoryList.jsx";
 import { FeatureTheme } from "../../Components/FeatureTheme/featureTheme.jsx";
 import { Footer } from "../../Components/Footer/footer";
-
+import '../homeBody/body.css'
 const Body = () => {
   const {
     data: categories,

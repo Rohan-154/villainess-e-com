@@ -1,0 +1,26 @@
+
+
+
+@media screen and (max-width:400px) {
+    .bg-img-stretch {
+        background-image: url("https://geekositymag.com/wp-content/uploads/2021/02/Daredevil-Will-Have-Comic-Accurate-Costume-With-Marvel-Studios.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        height: 350px;
+        margin-top: 6.8rem;
+        width: 370px;
+    }
+    .grid-layout-4-col{
+        justify-items: start;
+    }
+    .text-align-center{
+        margin-left: 3rem;
+        font-size: 1.4rem;
+    }
+    .short-underline{
+        margin-left: 5rem;
+        width: 12rem;
+    }
+    
+}
