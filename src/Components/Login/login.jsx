@@ -2,9 +2,11 @@ import { useAuth } from "../../Context/authContext";
 import { usePasswordToggle } from "../../custom-hooks/passwordToggle";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import "../Login/login.css";
+import { useEffect } from "react";
 const Login = () => {
   const { loginHandler, logInData } = useAuth();
   const { passwordToggle, togglePassword } = usePasswordToggle(); //togglepassword is function
+  useEffect(()=>{document.title='Login'},[])
   return (
     <div className="login-wrapper">
       <h2 className="spacer-1rem">Login</h2>

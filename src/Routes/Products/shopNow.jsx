@@ -9,6 +9,7 @@ import { Rating } from "../../Components/Pure-Functions/rating.jsx";
 import { Discount } from "../../Components/Pure-Functions/discount.jsx";
 import { Sort } from "../../Components/Pure-Functions/sort.jsx";
 import { Footer } from "../../Components/Footer/footer.jsx";
+import { Helmet } from 'react-helmet';
 const ShopNow = () => {
   const {
     data: products,
@@ -39,6 +40,9 @@ const ShopNow = () => {
   const sortFiltered = Sort(discountFiltered, state.sortBy);
   return (
     <>
+      <Helmet>
+          <title> Shop Now </title>
+        </Helmet>
       <div className="flex-wrap-shop">
         <Filter />
 

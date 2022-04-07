@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { addTocart } from "../../Backend-Services/cartServices";
 import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
@@ -13,6 +14,7 @@ const WishlistCard = () => {
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
   !token && navigate("/login");
+  useEffect(()=>{document.title='Wishlist'},[])
   return (
     <div>
       <h2

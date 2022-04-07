@@ -11,6 +11,7 @@ import { useWishlist } from "../../Context/wishlistContext";
 import "./cartCard.css";
 import { Footer } from "../Footer/footer";
 import { Bill } from "../Pure-Functions/bill.jsx";
+import { useEffect } from "react";
 const CartCard = () => {
   const navigate = useNavigate();
   const { cartState, cartDispatch } = useCart();
@@ -21,6 +22,7 @@ const CartCard = () => {
   const { currentPrice, discountPrice } = billDetails;
   const finalPrice = currentPrice - discountPrice;
   !token && navigate("/login");
+  useEffect(()=>{document.title='Cart'},[])
   return (
     <div className="cartMainDiv">
       <h2 className="text-align-center top-margin-7rem underline cart-title">

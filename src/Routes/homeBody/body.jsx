@@ -2,7 +2,8 @@ import { useFetch } from "../../custom-hooks/useFetch";
 import { CategoryList } from "../../Components/CategoryList/categoryList.jsx";
 import { FeatureTheme } from "../../Components/FeatureTheme/featureTheme.jsx";
 import { Footer } from "../../Components/Footer/footer";
-import '../homeBody/body.css'
+import '../homeBody/body.css';
+import { Helmet } from 'react-helmet';
 const Body = () => {
   const {
     data: categories,
@@ -10,7 +11,11 @@ const Body = () => {
     loader,
   } = useFetch("/api/categories", "categories");
   return (
+    
     <div>
+        <Helmet>
+          <title> Home </title>
+        </Helmet>
       <div className="bg-img-stretch"></div>
       <div className="spacer-3rem"></div>
       <h2 className="text-align-center"> Featured Categories </h2>
