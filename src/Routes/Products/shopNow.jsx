@@ -10,16 +10,18 @@ import { Discount } from "../../Components/Pure-Functions/discount.jsx";
 import { Sort } from "../../Components/Pure-Functions/sort.jsx";
 import { Footer } from "../../Components/Footer/footer.jsx";
 import { Helmet } from 'react-helmet';
+import SearchByName from "../../Components/Pure-Functions/searchbyName.jsx";
 const ShopNow = () => {
   const {
     data: products,
     error,
     loader,
   } = useFetch("/api/products", "products");
-  const { state } = useProduct();
+  const { state,searchInput } = useProduct();
   const { clothing, accessories, toys, electronics } = state.categories;
   const { punisher, daredevil, venom, deadpool, loki } = state.theme;
-  const priceFiltered = PriceSlider(products, state.price);
+  const searchFiltered = SearchByName(products,searchInput )
+  const priceFiltered = PriceSlider(searchFiltered, state.price);
   const categoryFiltered = Categories(
     priceFiltered,
     clothing,

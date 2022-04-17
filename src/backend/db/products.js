@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "The Punisher",
+    title: "The Punisher Hoodie",
     catchName: "the popular kid",
     price: 525,
     discardPrice: 1125,
@@ -93,7 +93,7 @@ export const products = [
  
   {
     _id: uuid(),
-    title: "The Iron Fist ",
+    title: "The Iron Fist Wallpaper",
     catchName: "the Power Punch",
     price: 425,
     discardPrice: 125,
@@ -105,7 +105,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Iron Fist",
+    title: "The Iron Fist Mask",
     catchName: "the monk mask",
     price: 165,
     discardPrice: 257,
@@ -117,7 +117,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Wolverine",
+    title: "The Wolverine Claws",
     catchName: "the angry wolve",
     price: 525,
     discardPrice: 1125,
@@ -129,7 +129,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Wolverine",
+    title: "The Wolverine Robot",
     catchName: "the angry wolve",
     price: 1525,
     discardPrice: 4125,
@@ -141,7 +141,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Wolverine",
+    title: "The Wolverine Dummy",
     catchName: "the angry wolve",
     price: 525,
     discardPrice: 1125,
@@ -153,7 +153,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Wolverine",
+    title: "The Wolverine Rubber Model",
     catchName: "the wolverine action figure",
     price: 625,
     discardPrice: 1425,
@@ -165,7 +165,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Deadpool",
+    title: "The Deadpool Starter Pack",
     catchName: "the funny punk",
     price: 1325,
     discardPrice: 6425,
@@ -177,7 +177,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Deadpool",
+    title: "The Deadpool Weapons",
     catchName: "the deadpool action figure",
     price: 825,
     discardPrice: 1125,
@@ -189,7 +189,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The Deadpool",
+    title: "The Deadpool Headphones",
     catchName: "the wireless headphone",
     price: 2055,
     discardPrice: 4125,
@@ -201,7 +201,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The ghost rider",
+    title: "The Ghost Rider Mobile Cover",
     catchName: "the ghost rider phone cover",
     price: 405,
     discardPrice: 495,
@@ -213,7 +213,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "The ghost rider",
+    title: "The Ghost Rider T-Shirt",
     catchName: "the ghost rider t-shirt",
     price: 400,
     discardPrice: 700,

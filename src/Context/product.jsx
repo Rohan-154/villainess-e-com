@@ -1,6 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
+import { useState } from "react";
 import { reducerFunction } from "../Reducer/reducer";
 const ProductProvider = ({ children }) => {
+  const[searchInput, setSearchInput] = useState('')
   const [state, dispatch] = useReducer(reducerFunction, {
     sortBy: "",
     price: 4000,
@@ -22,7 +24,7 @@ const ProductProvider = ({ children }) => {
   });
   return (
     <>
-      <ProductContext.Provider value={{ state, dispatch }}>
+      <ProductContext.Provider value={{ state, dispatch,searchInput,setSearchInput }}>
         {children}
       </ProductContext.Provider>
     </>
