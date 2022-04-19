@@ -7,7 +7,7 @@ import "../Navbar/navbar.css";
 import { useProduct } from "../../Context/product";
 import { Abbreviations } from "../Abbreviations";
 const NavBar = () => {
-  const { token, logOutHandler } = useAuth();
+  const { token } = useAuth();
   const { cartState } = useCart();
   const { productsInCart } = cartState;
   const { wishlistState } = useWishlist();
@@ -53,7 +53,6 @@ const NavBar = () => {
             placeholder="Type to Search..."
             onChange={(e)=> {
               navigate('/shopNow');
-              dispatch({ type: Abbreviations.CLEARFILTER});
               setSearchInput(e.target.value);
             }}
           />
@@ -63,14 +62,9 @@ const NavBar = () => {
             <i className="fa-solid fa-user fa-lg"></i> Login
           </Link>
         ) : (
-          <div
-            to="/login"
-            className="social-landing-page flex-column"
-            onClick={logOutHandler}
-            style={{ cursor: "pointer" }}
-          >
-            <i className="fa-solid fa-arrow-right-from-bracket"></i> Logout
-          </div>
+          <Link to="/dashboard" className="social-landing-page flex-column" style={{ cursor: "pointer" }}>
+            <i class="fa-solid fa-user fa-lg"></i> DashBoard
+          </Link>
         )}
 
         <Link
