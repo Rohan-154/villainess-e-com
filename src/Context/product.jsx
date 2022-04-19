@@ -2,7 +2,14 @@ import { createContext, useContext, useReducer } from "react";
 import { useState } from "react";
 import { reducerFunction } from "../Reducer/reducer";
 const ProductProvider = ({ children }) => {
-  const[searchInput, setSearchInput] = useState('')
+  const[searchInput, setSearchInput] = useState('');
+  const toastProps = {
+    theme:'dark',
+    closeOnClick: true,
+    autoClose: 1000,
+    pauseOnHover: true,
+    position: "top-right",
+  }
   const [state, dispatch] = useReducer(reducerFunction, {
     sortBy: "",
     price: 4000,
@@ -24,7 +31,7 @@ const ProductProvider = ({ children }) => {
   });
   return (
     <>
-      <ProductContext.Provider value={{ state, dispatch,searchInput,setSearchInput }}>
+      <ProductContext.Provider value={{ state, dispatch,searchInput,setSearchInput,toastProps }}>
         {children}
       </ProductContext.Provider>
     </>

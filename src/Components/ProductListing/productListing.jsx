@@ -6,8 +6,10 @@ import { useNavigate } from "react-router";
 import "./productListing.css";
 import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
 import { useWishlist } from "../../Context/wishlistContext.jsx";
+import { useProduct } from "../../Context/product.jsx";
 const ProductListing = ({ products }) => {
   const navigate = useNavigate();
+  const {toastProps} = useProduct();
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
@@ -52,7 +54,7 @@ const ProductListing = ({ products }) => {
                 onClick={() => {
                   {
                     token
-                      ? addTocart(token, products, cartDispatch)
+                      ? addTocart(token, products, cartDispatch, toastProps)
                       : navigate("/login");
                   }
                 }}
@@ -65,7 +67,7 @@ const ProductListing = ({ products }) => {
               className="icons-card"
               onClick={() => {
                 token
-                  ? addToWishlist(token, products, wishlistDispatch)
+                  ? addToWishlist(token, products, wishlistDispatch,toastProps)
                   : navigate("/login");
               }}
             >

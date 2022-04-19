@@ -1,7 +1,8 @@
 const { createContext, useContext, useState } = require("react");
 import axios from "axios";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-
+toast.configure();
 const AuthProvider = ({ children }) => {
   const localStorageToken = JSON.parse(localStorage.getItem("loginToken"));
   const [token, setToken] = useState(
