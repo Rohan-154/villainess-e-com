@@ -3,6 +3,7 @@ import { usePasswordToggle } from "../../custom-hooks/passwordToggle";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import "../Login/login.css";
 import { useEffect } from "react";
+import {Link} from 'react-router-dom';
 import logInImg from '../../Assets/login.png';
 const Login = () => {
   const { loginHandler, logInData } = useAuth();
@@ -64,9 +65,9 @@ const Login = () => {
         </button> */}
         <div className="singup-nav">
           Not registered yet?
-          <a href="/Components-E-Com/signup.html" className="create-acc">
+          <Link to='/signup' className="create-acc">
             Create Your Account
-          </a>
+          </Link>
         </div>
       </form>
     </div>

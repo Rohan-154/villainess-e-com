@@ -1,6 +1,5 @@
 import { Filter } from "../../Components/Filters/filter.jsx";
 import { ProductListing } from "../../Components/ProductListing/productListing.jsx";
-import { useFetch } from "../../custom-hooks/useFetch.jsx";
 import { PriceSlider } from "../../Components/Pure-Functions/priceSlider.jsx";
 import { useProduct } from "../../Context/product.jsx";
 import { Categories } from "../../Components/Pure-Functions/category.jsx";
@@ -12,12 +11,8 @@ import { Footer } from "../../Components/Footer/footer.jsx";
 import { Helmet } from 'react-helmet';
 import SearchByName from "../../Components/Pure-Functions/searchbyName.jsx";
 const ShopNow = () => {
-  const {
-    data: products,
-    error,
-    loader,
-  } = useFetch("/api/products", "products");
-  const { state,searchInput } = useProduct();
+
+  const { state,searchInput,products,error,loader } = useProduct();
   const { clothing, accessories, toys, electronics } = state.categories;
   const { punisher, daredevil, venom, deadpool, loki } = state.theme;
   const searchFiltered = SearchByName(products,searchInput )

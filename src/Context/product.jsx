@@ -1,8 +1,14 @@
 import { createContext, useContext, useReducer } from "react";
 import { useState } from "react";
+import { useFetch } from "../custom-hooks/useFetch";
 import { reducerFunction } from "../Reducer/reducer";
 const ProductProvider = ({ children }) => {
   const[searchInput, setSearchInput] = useState('');
+  const {
+    data: products,
+    error,
+    loader,
+  } = useFetch("/api/products", "products")
   const toastProps = {
     theme:'dark',
     closeOnClick: true,
@@ -31,7 +37,8 @@ const ProductProvider = ({ children }) => {
   });
   return (
     <>
-      <ProductContext.Provider value={{ state, dispatch,searchInput,setSearchInput,toastProps }}>
+      <ProductContext.Provider value={{ state, dispatch,searchInput,setSearchInput,toastProps,products,error,
+    loader}}>
         {children}
       </ProductContext.Provider>
     </>

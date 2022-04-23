@@ -1,38 +1,47 @@
 .submit-form {
     max-width: 25rem;
 }
-.login-div{
+
+.login-div {
     display: flex;
     justify-content: center;
 }
-.login-img{
+
+.login-img {
     background-color: var(--danger-message-color);
     display: flex;
     flex-direction: column;
     max-width: 20rem;
     padding: 1rem;
-    justify-content: space-between;
+    gap: 3rem;
     border-radius: 0.3rem;
+    justify-content: space-evenly;
 }
-.login-wrapper{
+
+.login-wrapper {
     margin: 15rem 3rem;
 }
-.login-img-hero{
+
+.login-img-hero {
     border-radius: 0.5rem;
 
 }
-.login-details{
+
+.login-details {
     color: var(--white-color);
 }
-.color-white{
+
+.color-white {
     font-size: 2rem;
     color: var(--white-color);
 }
+
 @media screen and (max-width:450px) {
     .submit-form {
         max-width: 15rem;
     }
-    .login-img{
+
+    .login-img {
         display: none;
     }
 

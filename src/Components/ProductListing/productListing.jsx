@@ -14,11 +14,12 @@ const ProductListing = ({ products }) => {
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
   const { wishlistDispatch } = useWishlist();
-  const { title, catchName, price, discardPrice, rating, img } = products;
+  const { title, catchName, price, discardPrice, rating, img,_id } = products;
   return (
     <>
       <div className="all-card-collection">
         <div className="card-container">
+          <Link to={`/product/${_id}`}>
           <picture className="background-img">
             <img
               src={img}
@@ -43,6 +44,7 @@ const ProductListing = ({ products }) => {
               {rating} <i className="fa-solid fa-star"></i> | 20
             </p>
           </main>
+          </Link>
           <footer className="footer-card">
             {productsInCart.find((items) => items._id === products._id) ? (
               <Link to="/cart">
