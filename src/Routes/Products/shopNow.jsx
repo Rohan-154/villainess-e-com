@@ -45,7 +45,7 @@ const ShopNow = () => {
 
         <div className="grid-layout-3-col">
           {error && <p> {error}</p>}
-          {loader && <p> Loading... </p>}
+          {loader && <p className="top-margin-7rem"> Loading... </p>}
           {sortFiltered &&
             sortFiltered?.map((products) => (
               <ProductListing products={products} key={products._id} />

@@ -2,6 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Abbreviations } from "../Components/Abbreviations";
+toast.configure();
 const addTocart = async (token, product, cartDispatch, toastProps) => {
   try {
     const res = await axios.post(

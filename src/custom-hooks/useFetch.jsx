@@ -8,24 +8,23 @@ const useFetch = (url, dataName) => {
 
   useEffect(() => {
     const abortCont = new AbortController();
-    
-      (async () => {
-        try {
-          const { data, status } = await axios.get(url, { signal: abortCont });
-          if (status === 200) {
-            setData(data[dataName]); //data[categories]
-            setLoader(false);
-          }
-        } catch (error) {
-          if (error.name === "AbortError") {
-            console.log("fetch aborted");
-          } else {
-            setLoader(false);
-            setError(error);
-          }
+
+    (async () => {
+      try {
+        const { data, status } = await axios.get(url, { signal: abortCont });
+        if (status === 200) {
+          setData(data[dataName]); //data[categories]
+          setLoader(false);
         }
-      })();
-    
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          setLoader(false);
+          setError(error);
+        }
+      }
+    })();
 
     return () => abortCont.abort();
   }, [url]);

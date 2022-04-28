@@ -1,0 +1,22 @@
+.productDetails-wrapper {
+    display: flex;
+    margin: 15rem auto;
+    gap: 2rem;
+    width: 100vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.product-details {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.single-prod-img {
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+}
