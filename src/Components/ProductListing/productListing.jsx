@@ -6,13 +6,19 @@ import { useNavigate } from "react-router";
 import "./productListing.css";
 import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
 import { useWishlist } from "../../Context/wishlistContext.jsx";
+import { useState } from "react";
+import { useEffect } from "react";
 const ProductListing = ({ products }) => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
-  const { wishlistDispatch } = useWishlist();
+  const { wishlistState,wishlistDispatch } = useWishlist();
   const { title, catchName, price, discardPrice, rating, img } = products;
+  const [isInWishlist,setIsInWishlist] = useState(false)
+  useEffect(()=>{
+    wishlistState.productsInWishlist.find((items)=> items._id === products._id) ? setIsInWishlist(true) : setIsInWishlist(false)
+  },[wishlistState.productsInWishlist])
   return (
     <>
       <div className="all-card-collection">
@@ -22,7 +28,6 @@ const ProductListing = ({ products }) => {
               src={img}
               alt="-products-image"
               className="basic-image"
-              style={{ width: "20rem" }}
             />
           </picture>
           <main className="main-body">
@@ -62,12 +67,13 @@ const ProductListing = ({ products }) => {
               </button>
             )}
             <button
-              className="icons-card"
+              className={`${isInWishlist===true ? "active-wishlist" : "icons-card"}`}
               onClick={() => {
                 token
                   ? addToWishlist(token, products, wishlistDispatch)
                   : navigate("/login");
               }}
+              disabled={isInWishlist=== true ? true : false}
             >
               {" "}
               <i className="fas fa-heart"></i>{" "}

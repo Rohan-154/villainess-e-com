@@ -17,7 +17,7 @@ const CartCard = () => {
   const { cartState, cartDispatch } = useCart();
   const { token } = useAuth();
   const { productsInCart } = cartState;
-  const { wishlistDispatch } = useWishlist();
+  const {wishlistDispatch } = useWishlist();
   const billDetails = Bill(productsInCart);
   const { currentPrice, discountPrice } = billDetails;
   const finalPrice = currentPrice - discountPrice;
@@ -27,7 +27,7 @@ const CartCard = () => {
     <div className="cartMainDiv">
       <h2 className="text-align-center top-margin-7rem underline cart-title">
         <i className="fa-solid fa-cart-shopping red"></i>
-        My Shopping Cart-rohan
+        My Shopping Cart
       </h2>
       {productsInCart.length !== 0 ? (
         <div className="cart-content-wrapper">

@@ -29,7 +29,7 @@ const WishlistCard = () => {
         <div className="grid-layout-3-col">
           {productsInWishlist.map((items) => (
             <div className="all-card-collection" key={items._id}>
-              <div className="card-container">
+              <div className="card-container contain-wishlist">
                 <picture className="background-img">
                   <img
                     src={items.img}
