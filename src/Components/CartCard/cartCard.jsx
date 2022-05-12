@@ -27,7 +27,7 @@ const CartCard = () => {
     <div className="cartMainDiv">
       <h2 className="text-align-center top-margin-7rem underline cart-title">
         <i className="fa-solid fa-cart-shopping red"></i>
-        My Shopping Cart
+        My Shopping Cart-rohan
       </h2>
       {productsInCart.length !== 0 ? (
         <div className="cart-content-wrapper">
