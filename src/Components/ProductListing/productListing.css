@@ -26,6 +26,9 @@
 .basic-image{
     width: 20rem;
 }
+.footer-basic{
+    margin-top: 10rem;
+}
 @media screen and (max-width:450px) {
     .card-container{
         width: 250px;

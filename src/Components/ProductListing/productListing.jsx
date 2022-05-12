@@ -32,7 +32,7 @@ const ProductListing = ({ products }) => {
           </picture>
           <main className="main-body">
             <h3 className="card-title"> {title} </h3>
-            <p>( {catchName} )</p>
+            <p>({catchName})</p>
             <p>
               {" "}
               ₹{price} <s>₹{discardPrice}</s>{" "}
