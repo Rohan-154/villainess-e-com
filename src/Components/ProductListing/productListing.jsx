@@ -26,7 +26,7 @@ const ProductListing = ({ products }) => {
             />
           </picture>
           <main className="main-body">
-            <h3 className="card-title"> {title} </h3>
+            <h3 className="card-title"> {title} rohan</h3>
             <p>( {catchName} )</p>
             <p>
               {" "}
