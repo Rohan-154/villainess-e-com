@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
 import { useWishlist } from "../../Context/wishlistContext";
 import "../Navbar/navbar.css";
+import { useProduct } from "../../Context/product";
+import { Abbreviations } from "../Abbreviations";
 const NavBar = () => {
   const { token, logOutHandler } = useAuth();
   const { cartState } = useCart();
   const { productsInCart } = cartState;
   const { wishlistState } = useWishlist();
   const [nav, setNav] = useState(false);
+  const {dispatch, setSearchInput} = useProduct();
+  const navigate = useNavigate();
   return (
     <nav className="land-navbar">
       <h1 className="land-heading-title">
@@ -47,6 +51,11 @@ const NavBar = () => {
             type="text"
             className="input-search"
             placeholder="Type to Search..."
+            onChange={(e)=> {
+              navigate('/shopNow');
+              dispatch({ type: Abbreviations.CLEARFILTER});
+              setSearchInput(e.target.value);
+            }}
           />
         </div>
         {!token ? (
