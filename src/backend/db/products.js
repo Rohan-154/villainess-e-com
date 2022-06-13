@@ -17,6 +17,7 @@ export const products = [
     rating: 5,
     theme: "punisher",
     img: "https://villainess-e-store.netlify.app/Assets/product-images/punisher-hoodie.jpg",
+    description:"Punisher Skull (Glow In The Dark) Marvel Official Hoodie Franks Castle was an honest ex-marine officer who loved his family. He lived a happy life but fate had planned other horrid plans for him. He lost his family when his destiny was crossed in witnessing a wrong mafia deal. After that incident, everything changed for him. He became a gruesome murderer, a vigilante who was feared by all.He had only one motive to Punish the people who poison this society. He's the Punisher. Get this gruesome new Marvel official Punisher Skull hoodie now! This design comes screen printed to perfection on a black Redwolf hoodie."
   },
   {
     _id: uuid(),

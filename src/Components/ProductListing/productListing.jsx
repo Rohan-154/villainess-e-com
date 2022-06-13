@@ -6,17 +6,20 @@ import { useNavigate } from "react-router";
 import "./productListing.css";
 import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
 import { useWishlist } from "../../Context/wishlistContext.jsx";
+import { useProduct } from "../../Context/product.jsx";
 const ProductListing = ({ products }) => {
   const navigate = useNavigate();
+  const {toastProps} = useProduct();
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
   const { wishlistDispatch } = useWishlist();
-  const { title, catchName, price, discardPrice, rating, img } = products;
+  const { title, catchName, price, discardPrice, rating, img,_id } = products;
   return (
     <>
       <div className="all-card-collection">
         <div className="card-container">
+          <Link to={`/product/${_id}`}>
           <picture className="background-img">
             <img
               src={img}
@@ -41,6 +44,7 @@ const ProductListing = ({ products }) => {
               {rating} <i className="fa-solid fa-star"></i> | 20
             </p>
           </main>
+          </Link>
           <footer className="footer-card">
             {productsInCart.find((items) => items._id === products._id) ? (
               <Link to="/cart">
@@ -52,7 +56,7 @@ const ProductListing = ({ products }) => {
                 onClick={() => {
                   {
                     token
-                      ? addTocart(token, products, cartDispatch)
+                      ? addTocart(token, products, cartDispatch, toastProps)
                       : navigate("/login");
                   }
                 }}
@@ -65,7 +69,7 @@ const ProductListing = ({ products }) => {
               className="icons-card"
               onClick={() => {
                 token
-                  ? addToWishlist(token, products, wishlistDispatch)
+                  ? addToWishlist(token, products, wishlistDispatch,toastProps)
                   : navigate("/login");
               }}
             >

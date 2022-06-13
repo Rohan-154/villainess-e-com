@@ -1,0 +1,30 @@
+.eye-btn-c-p{
+    position: absolute;
+    bottom: 6.7rem;
+    right: 0.5rem;
+    border: none;
+}
+.eye-btn-p{
+    position: absolute;
+    bottom: 13.4rem;
+    right: 0.5rem;
+    border: none;
+}
+.signup-img{
+
+}
+.error-msg{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+    color: var(--primary-color);
+    font-weight: bolder;
+}
+.signup-wrapper{
+    margin: 8rem 3rem;
+}
+@media screen and (max-width: 650px) {
+    .eye-btn-c-p, .eye-btn-p{
+        display: none;
+    }
+}

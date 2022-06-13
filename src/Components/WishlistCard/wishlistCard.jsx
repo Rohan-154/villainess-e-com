@@ -5,7 +5,6 @@ import { addTocart } from "../../Backend-Services/cartServices";
 import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
 import { useWishlist } from "../../Context/wishlistContext";
-
 const WishlistCard = () => {
   const navigate = useNavigate();
   const { wishlistState } = useWishlist();
