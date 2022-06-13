@@ -5,9 +5,13 @@ import { addTocart } from "../../Backend-Services/cartServices";
 import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
 import { useWishlist } from "../../Context/wishlistContext";
+
+
+import { removeFromWishlist } from "../../Backend-Services/wishlistService";
+
 const WishlistCard = () => {
   const navigate = useNavigate();
-  const { wishlistState } = useWishlist();
+  const { wishlistDispatch, wishlistState } = useWishlist();
   const { productsInWishlist } = wishlistState;
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
@@ -28,7 +32,7 @@ const WishlistCard = () => {
         <div className="grid-layout-3-col">
           {productsInWishlist.map((items) => (
             <div className="all-card-collection" key={items._id}>
-              <div className="card-container">
+              <div className="card-container contain-wishlist">
                 <picture className="background-img">
                   <img
                     src={items.img}
@@ -68,6 +72,15 @@ const WishlistCard = () => {
                       Move to cart{" "}
                     </button>
                   )}
+                  <button
+              className={`icons-card`}
+              onClick={() => {
+                removeFromWishlist(token, items._id, wishlistDispatch)
+              }}
+            >
+              {" "}
+              <i class="fa-solid fa-trash"></i>
+            </button>
                 </footer>
               </div>
             </div>

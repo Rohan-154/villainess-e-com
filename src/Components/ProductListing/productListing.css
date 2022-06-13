@@ -9,3 +9,31 @@
 .card-container {
     max-height: 25rem;
 }
+.icons-card:hover,.icons-card:focus{
+    background-color: var(--white-color);
+    color:var(--black-color);
+}
+.footer-card>button{
+    font-size: 1.2rem;
+}
+.active-wishlist{
+    color: var(--primary-color);
+}
+
+.contain-wishlist{
+    max-height: 30rem;
+}
+.basic-image{
+    width: 20rem;
+}
+.footer-basic{
+    margin-top: 10rem;
+}
+@media screen and (max-width:450px) {
+    .card-container{
+        width: 250px;
+    }
+    .basic-image{
+        width: 100%;
+    }
+}

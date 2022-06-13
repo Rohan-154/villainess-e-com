@@ -19,7 +19,7 @@ const CartCard = () => {
   const {toastProps} = useProduct();
   const { token } = useAuth();
   const { productsInCart } = cartState;
-  const { wishlistDispatch } = useWishlist();
+  const {wishlistDispatch } = useWishlist();
   const billDetails = Bill(productsInCart);
   const { currentPrice, discountPrice } = billDetails;
   const finalPrice = currentPrice - discountPrice;

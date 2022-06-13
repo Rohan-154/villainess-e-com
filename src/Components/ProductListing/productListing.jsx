@@ -6,15 +6,29 @@ import { useNavigate } from "react-router";
 import "./productListing.css";
 import { addToWishlist } from "../../Backend-Services/wishlistService.jsx";
 import { useWishlist } from "../../Context/wishlistContext.jsx";
+
 import { useProduct } from "../../Context/product.jsx";
+
+import { useState } from "react";
+import { useEffect } from "react";
+
 const ProductListing = ({ products }) => {
   const navigate = useNavigate();
   const {toastProps} = useProduct();
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
+
   const { wishlistDispatch } = useWishlist();
   const { title, catchName, price, discardPrice, rating, img,_id } = products;
+
+  const { wishlistState,wishlistDispatch } = useWishlist();
+  const { title, catchName, price, discardPrice, rating, img } = products;
+  const [isInWishlist,setIsInWishlist] = useState(false)
+  useEffect(()=>{
+    wishlistState.productsInWishlist.find((items)=> items._id === products._id) ? setIsInWishlist(true) : setIsInWishlist(false)
+  },[wishlistState.productsInWishlist])
+
   return (
     <>
       <div className="all-card-collection">
@@ -25,12 +39,16 @@ const ProductListing = ({ products }) => {
               src={img}
               alt="-products-image"
               className="basic-image"
-              style={{ width: "20rem" }}
             />
           </picture>
           <main className="main-body">
+
             <h3 className="card-title"> {title} rohan</h3>
             <p>( {catchName} )</p>
+
+            <h3 className="card-title"> {title} </h3>
+            <p>({catchName})</p>
+
             <p>
               {" "}
               ₹{price} <s>₹{discardPrice}</s>{" "}
@@ -66,12 +84,13 @@ const ProductListing = ({ products }) => {
               </button>
             )}
             <button
-              className="icons-card"
+              className={`${isInWishlist===true ? "active-wishlist" : "icons-card"}`}
               onClick={() => {
                 token
                   ? addToWishlist(token, products, wishlistDispatch,toastProps)
                   : navigate("/login");
               }}
+              disabled={isInWishlist=== true ? true : false}
             >
               {" "}
               <i className="fas fa-heart"></i>{" "}
