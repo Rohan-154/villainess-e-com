@@ -6,7 +6,6 @@ import { useAuth } from "../../Context/authContext";
 import { useCart } from "../../Context/cart";
 import { useWishlist } from "../../Context/wishlistContext";
 
-
 import { removeFromWishlist } from "../../Backend-Services/wishlistService";
 
 const WishlistCard = () => {
@@ -17,7 +16,9 @@ const WishlistCard = () => {
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
   !token && navigate("/login");
-  useEffect(()=>{document.title='Wishlist'},[])
+  useEffect(() => {
+    document.title = "Wishlist";
+  }, []);
   return (
     <div>
       <h2
@@ -73,14 +74,14 @@ const WishlistCard = () => {
                     </button>
                   )}
                   <button
-              className={`icons-card`}
-              onClick={() => {
-                removeFromWishlist(token, items._id, wishlistDispatch)
-              }}
-            >
-              {" "}
-              <i class="fa-solid fa-trash"></i>
-            </button>
+                    className={`icons-card`}
+                    onClick={() => {
+                      removeFromWishlist(token, items._id, wishlistDispatch);
+                    }}
+                  >
+                    {" "}
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
                 </footer>
               </div>
             </div>

@@ -19,11 +19,11 @@ const ProductListing = ({ products }) => {
   const { cartState, cartDispatch } = useCart();
   const { productsInCart } = cartState;
 
-  const { wishlistDispatch } = useWishlist();
+  
   const { title, catchName, price, discardPrice, rating, img,_id } = products;
 
   const { wishlistState,wishlistDispatch } = useWishlist();
-  const { title, catchName, price, discardPrice, rating, img } = products;
+  // const { title, catchName, price, discardPrice, rating, img } = products;
   const [isInWishlist,setIsInWishlist] = useState(false)
   useEffect(()=>{
     wishlistState.productsInWishlist.find((items)=> items._id === products._id) ? setIsInWishlist(true) : setIsInWishlist(false)

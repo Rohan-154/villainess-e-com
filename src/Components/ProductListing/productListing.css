@@ -7,7 +7,7 @@
     font-weight: bold
 }
 .card-container {
-    max-height: 25rem;
+    max-height: 30rem;
 }
 .icons-card:hover,.icons-card:focus{
     background-color: var(--white-color);
