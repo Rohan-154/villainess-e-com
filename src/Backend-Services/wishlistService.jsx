@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { Abbreviations } from "../Components/Abbreviations";
 const getWishlistData = async (token, wishlistDispatch) => {
   try {
@@ -16,7 +17,7 @@ const getWishlistData = async (token, wishlistDispatch) => {
   }
 };
 
-const addToWishlist = async (token, product, wishlistDispatch) => {
+const addToWishlist = async (token, product, wishlistDispatch,toastProps) => {
   try {
     const res = await axios.post(
       "/api/user/wishlist",
@@ -31,6 +32,7 @@ const addToWishlist = async (token, product, wishlistDispatch) => {
       type: Abbreviations.ADD_TO_WISHLIST,
       payload: res.data.wishlist,
     });
+    toast.success(`${product.title} added to wishlist!`, toastProps);
   } catch (error) {
     console.log(error);
   }
@@ -47,6 +49,7 @@ const removeFromWishlist = async (token, productId, wishlistDispatch) => {
         type: Abbreviations.REMOVE_FROM_WISHLIST,
         payload: res.data.wishlist,
       });
+      toast.warning(`Item removed from wishlist!`, toastProps);
     } catch (error) {
       console.log(error);
     }

@@ -12,9 +12,11 @@ import "./cartCard.css";
 import { Footer } from "../Footer/footer";
 import { Bill } from "../Pure-Functions/bill.jsx";
 import { useEffect } from "react";
+import { useProduct } from "../../Context/product";
 const CartCard = () => {
   const navigate = useNavigate();
   const { cartState, cartDispatch } = useCart();
+  const {toastProps} = useProduct();
   const { token } = useAuth();
   const { productsInCart } = cartState;
   const {wishlistDispatch } = useWishlist();
@@ -87,7 +89,7 @@ const CartCard = () => {
                           <button
                             className="btn-trash btn-icon"
                             onClick={() => {
-                              removeFromCart(token, items._id, cartDispatch);
+                              removeFromCart(token, items._id, cartDispatch, toastProps);
                             }}
                             style={{ fontWeight: "bolder" }}
                           >

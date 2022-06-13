@@ -1,7 +1,8 @@
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Abbreviations } from "../Components/Abbreviations";
-const addTocart = async (token, product, cartDispatch) => {
+const addTocart = async (token, product, cartDispatch, toastProps) => {
   try {
     const res = await axios.post(
       "/api/user/cart",
@@ -9,12 +10,13 @@ const addTocart = async (token, product, cartDispatch) => {
       { headers: { authorization: token } }
     );
     cartDispatch({ type: Abbreviations.ADD_TO_CART, payload: res.data.cart });
+    toast.success(`${product.title} added to cart!`, toastProps);
   } catch (error) {
     console.log(error);
   }
 };
 
-const removeFromCart = async (token, productId, cartDispatch) => {
+const removeFromCart = async (token, productId, cartDispatch,toastProps) => {
   try {
     const res = await axios.delete(`/api/user/cart/${productId}`, {
       headers: {
@@ -25,6 +27,7 @@ const removeFromCart = async (token, productId, cartDispatch) => {
       type: Abbreviations.REMOVE_FROM_CART,
       payload: res.data.cart,
     });
+    toast.warning(`Item removed from cart!`, toastProps);
   } catch (error) {
     console.log(error);
   }
