@@ -7,7 +7,7 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(
     localStorageToken && localStorageToken.token
   );
-  const [userBio, setuserBio] = useState();
+  const [userBio, setuserBio] = useState(localStorageToken && localStorageToken.user);
   const [logInData, setLogInData] = useState({
     email: "rohandubey154@gmail.com",
     password: "rohan123",
@@ -20,6 +20,7 @@ const AuthProvider = ({ children }) => {
         "loginToken",
         JSON.stringify({
           token: data.encodedToken,
+          user:data.foundUser,
         })
       );
       setToken(data.encodedToken);

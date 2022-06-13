@@ -1,0 +1,27 @@
+.c-c-dashboard{
+    width: 25rem;
+    height: 20rem;
+}
+.a-c-c-dashboard{
+    align-items: center;
+    flex-direction: column;
+}
+.btn-logout-dashboard{
+    width: 6rem;
+    margin-left: 1rem;
+}
+.main-body-dashboard{
+    gap: 1rem;
+}
+.f-c-dashboard>button{
+    font-size: 1.3rem;
+}
+.f-c-dashboard{
+    border-bottom: 3px solid var(--primary-color);
+}
+.btn-p-c-dashboard{
+    box-sizing: content-box;
+}
+.btn-p-c-dashboard:focus{
+    background-color:none
+}
