@@ -37,7 +37,7 @@ const ProductProvider = ({ children }) => {
   });
   return (
     <>
-      <ProductContext.Provider value={{ state, dispatch,searchInput,setSearchInput,toastProps,products,error,
+      <ProductContext.Provider value={{toastProps, state, dispatch,searchInput,setSearchInput,products,error,
     loader}}>
         {children}
       </ProductContext.Provider>

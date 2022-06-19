@@ -1,11 +1,11 @@
 const { createContext, useContext, useState } = require("react");
 import axios from "axios";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-// import {useProduct} from '../Context/product.jsx';
-// toast.configure();
+import { useProduct } from "./product.jsx";
+toast.configure();
 const AuthProvider = ({ children }) => {
-  // const {toastProps} = useProduct();
+  const { toastProps } = useProduct();
   const localStorageToken = JSON.parse(localStorage.getItem("loginToken"));
   const [token, setToken] = useState(localStorageToken?.token);
 
@@ -16,7 +16,6 @@ const AuthProvider = ({ children }) => {
   });
   const navigate = useNavigate();
   const signUpHandler = async (formData) => {
-  
     try {
       const { data, status } = await axios.post("/api/auth/signup", formData);
       if (status === 201) {
@@ -27,7 +26,7 @@ const AuthProvider = ({ children }) => {
       }
       setToken(data.encodedToken);
       setuserBio(data.createdUser);
-      console.log("rohan",data.createdUser);
+      console.log("rohan", data.createdUser);
       // toast.success(`Hi user, you are signed up`, toastProps);
       navigate("/dashboard");
     } catch (error) {

@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
+    id:1,
     title: "The Punisher Hoodie",
     catchName: "the popular kid",
     price: 525,
@@ -17,10 +18,11 @@ export const products = [
     rating: 5,
     theme: "punisher",
     img: "https://villainess-e-store.netlify.app/Assets/product-images/punisher-hoodie.jpg",
-    description:"Punisher Skull (Glow In The Dark) Marvel Official Hoodie Franks Castle was an honest ex-marine officer who loved his family. He lived a happy life but fate had planned other horrid plans for him. He lost his family when his destiny was crossed in witnessing a wrong mafia deal. After that incident, everything changed for him. He became a gruesome murderer, a vigilante who was feared by all.He had only one motive to Punish the people who poison this society. He's the Punisher. Get this gruesome new Marvel official Punisher Skull hoodie now! This design comes screen printed to perfection on a black Redwolf hoodie."
+    description:"Punisher Skull (Glow In The Dark) Marvel Official Hoodie. A vigilante who was feared by all.He had only one motive to Punish the people who poison this society. He's the Punisher. Get this gruesome new Marvel official Punisher Skull hoodie now! This design comes screen printed to perfection on a black Redwolf hoodie."
   },
   {
     _id: uuid(),
+    id:2,
     title: "loki Scepter",
     catchName: "the most clever kid",
     price: 2578,
@@ -33,6 +35,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:3,
     title: "Venom Robot",
     catchName: "the mad-man",
     price: 1278,
@@ -45,6 +48,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:4,
     title: "Venom Realme X3 Mobile Cover",
     catchName: "the mad-man",
     price: 399,
@@ -57,6 +61,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:5,
     title: "Deadpool Loves Coffee Mug",
     catchName: "the comedy kid who fights seriously",
     price: 150,
@@ -69,6 +74,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:6,
     title: "Official Daredevil T-Shirt",
     catchName: "the smartest kid",
     price: 299,
@@ -81,6 +87,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:7,
     title: "Loki Laptop Stickers",
     catchName: "the most clever kid",
     price: 99,
@@ -94,6 +101,7 @@ export const products = [
  
   {
     _id: uuid(),
+    id:8,
     title: "The Iron Fist Wallpaper",
     catchName: "the Power Punch",
     price: 425,
@@ -106,6 +114,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:9,
     title: "The Iron Fist Mask",
     catchName: "the monk mask",
     price: 165,
@@ -118,6 +127,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:10,
     title: "The Wolverine Claws",
     catchName: "the angry wolve",
     price: 525,
@@ -130,6 +140,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:11,
     title: "The Wolverine Robot",
     catchName: "the angry wolve",
     price: 1525,
@@ -142,6 +153,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:12,
     title: "The Wolverine Dummy",
     catchName: "the angry wolve",
     price: 525,
@@ -154,6 +166,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:13,
     title: "The Wolverine Rubber Model",
     catchName: "the wolverine action figure",
     price: 625,
@@ -166,6 +179,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:14,
     title: "The Deadpool Starter Pack",
     catchName: "the funny punk",
     price: 1325,
@@ -178,6 +192,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:15,
     title: "The Deadpool Weapons",
     catchName: "the deadpool action figure",
     price: 825,
@@ -190,6 +205,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:16,
     title: "The Deadpool Headphones",
     catchName: "the wireless headphone",
     price: 2055,
@@ -202,6 +218,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:17,
     title: "The Ghost Rider Mobile Cover",
     catchName: "the ghost rider phone cover",
     price: 405,
@@ -214,6 +231,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    id:18,
     title: "The Ghost Rider T-Shirt",
     catchName: "the ghost rider t-shirt",
     price: 400,

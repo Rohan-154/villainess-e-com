@@ -20,7 +20,7 @@ const ProductListing = ({ products }) => {
   const { productsInCart } = cartState;
 
   
-  const { title, catchName, price, discardPrice, rating, img,_id } = products;
+  const { title, catchName, price, discardPrice, rating, img,id } = products;
 
   const { wishlistState,wishlistDispatch } = useWishlist();
   // const { title, catchName, price, discardPrice, rating, img } = products;
@@ -33,7 +33,7 @@ const ProductListing = ({ products }) => {
     <>
       <div className="all-card-collection">
         <div className="card-container">
-          <Link to={`/product/${_id}`}>
+          <Link to={`/product/${id}`}>
           <picture className="background-img">
             <img
               src={img}
