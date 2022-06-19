@@ -5,7 +5,13 @@ import { useNavigate } from "react-router";
 import { useProduct } from "./product.jsx";
 toast.configure();
 const AuthProvider = ({ children }) => {
-  const { toastProps } = useProduct();
+  const toastProps = {
+    theme: "dark",
+    closeOnClick: true,
+    autoClose: 1000,
+    pauseOnHover: true,
+    position: "top-right",
+  };
   const localStorageToken = JSON.parse(localStorage.getItem("loginToken"));
   const [token, setToken] = useState(localStorageToken?.token);
 
@@ -26,8 +32,7 @@ const AuthProvider = ({ children }) => {
       }
       setToken(data.encodedToken);
       setuserBio(data.createdUser);
-      console.log("rohan", data.createdUser);
-      // toast.success(`Hi user, you are signed up`, toastProps);
+      toast.success(`Hi user, you are signed up`, toastProps);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
@@ -46,6 +51,11 @@ const AuthProvider = ({ children }) => {
       setToken(data.encodedToken);
       setuserBio(data.foundUser);
       navigate("/shopNow");
+      console.log(userBio);
+      toast.success(
+        `Hi ${data.foundUser.firstName}, you are logged in!`,
+        toastProps
+      );
     } catch (error) {
       console.log(error);
     }

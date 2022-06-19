@@ -7,6 +7,7 @@ import { useCart } from "../../Context/cart";
 import { useWishlist } from "../../Context/wishlistContext";
 
 import { removeFromWishlist } from "../../Backend-Services/wishlistService";
+import { useProduct } from "../../Context/product";
 
 const WishlistCard = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const WishlistCard = () => {
   useEffect(() => {
     document.title = "Wishlist";
   }, []);
+  const { toastProps } = useProduct();
   return (
     <div>
       <h2
@@ -76,7 +78,12 @@ const WishlistCard = () => {
                   <button
                     className={`icons-card`}
                     onClick={() => {
-                      removeFromWishlist(token, items._id, wishlistDispatch);
+                      removeFromWishlist(
+                        token,
+                        items._id,
+                        wishlistDispatch,
+                        toastProps
+                      );
                     }}
                   >
                     {" "}

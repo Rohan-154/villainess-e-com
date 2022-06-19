@@ -16,7 +16,7 @@ const addTocart = async (token, product, cartDispatch, toastProps) => {
   }
 };
 
-const removeFromCart = async (token, productId, cartDispatch,toastProps) => {
+const removeFromCart = async (token, productId, cartDispatch, toastProps) => {
   try {
     const res = await axios.delete(`/api/user/cart/${productId}`, {
       headers: {
