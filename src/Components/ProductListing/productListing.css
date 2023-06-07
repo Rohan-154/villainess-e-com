@@ -30,9 +30,6 @@
     margin-top: 10rem;
 }
 @media screen and (max-width:450px) {
-    .card-container{
-        width: 250px;
-    }
     .basic-image{
         width: 100%;
     }
