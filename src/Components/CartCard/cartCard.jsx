@@ -34,14 +34,6 @@ const CartCard = () => {
       {productsInCart.length !== 0 ? (
         <div className="cart-content-wrapper">
           <div className="flex-wrap-shop-2">
-            <div className="address-wrapper">
-              <p>
-                Deliver to: <strong> Admin user, 43789</strong>
-              </p>
-              <button className="btn-login login-test" type="button">
-                Change Address
-              </button>
-            </div>
 
             {productsInCart.map((items) => (
               <div
@@ -161,8 +153,8 @@ const CartCard = () => {
                 <strong>₹{finalPrice}</strong>
               </p>
             </div>
-            <button className="btn-login login spacer-1rem" type="submit">
-              Place Order
+            <button className="btn-login login spacer-1rem" type="submit" onClick={()=> navigate('/checkout')}>
+              Checkout
             </button>
           </div>
         </div>
@@ -185,6 +177,7 @@ const CartCard = () => {
       )}
       <Footer />
     </div>
+    
   );
 };
 

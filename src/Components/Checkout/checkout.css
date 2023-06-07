@@ -1,0 +1,32 @@
+.checkout {
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 20px;
+    max-width: 80rem;
+    gap: 10rem;
+    margin-top: 10rem;
+}
+
+.checkout__address {
+    width: 40%;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+
+.checkout__cart {
+    width: 58%;
+    padding-left: 20px;
+}
+@media screen and (max-width:768px) {
+    .checkout {
+        flex-direction: column;
+        width: 100%;
+        gap: 3rem;
+    }
+    .checkout__address {
+        width: 100%;
+    }
+    .checkout__cart {
+        width: 100%
+    }
+}

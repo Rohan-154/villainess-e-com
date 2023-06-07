@@ -9,6 +9,7 @@ import { WishlistCard } from "./Components/WishlistCard/wishlistCard.jsx";
 import { ProfilePage } from "./Components/Dashboard/profilePage.jsx";
 import { SignUp } from "./Components/Sign-Up/signup.jsx";
 import { SingleProduct } from "./Components/SingleProductPage/singleProduct.jsx";
+import {Checkout} from "./Components/Checkout/checkout.jsx";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <Route path="/wishlist" element={<WishlistCard />} />
         <Route path="/dashboard" element={<ProfilePage/>} />
         <Route path='/product/:productId' element={<SingleProduct/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
         <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
