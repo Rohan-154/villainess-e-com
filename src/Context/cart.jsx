@@ -4,6 +4,8 @@ import { reducerFunction } from "../Reducer/cartReducer.jsx";
 const CartProvider = ({ children }) => {
   const [cartState, cartDispatch] = useReducer(reducerFunction, {
     productsInCart: [],
+    addressList: [],
+    selectedAddress: {},
   });
   return (
     <CartContext.Provider value={{ cartState, cartDispatch }}>
