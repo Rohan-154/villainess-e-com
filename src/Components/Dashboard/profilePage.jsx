@@ -6,7 +6,6 @@ const ProfilePage = () => {
   const { firstName, lastName, email } = userBio;
   const dashRoutes = [
     { title: "Profile", link: "/dashboard" },
-    { title: "Address", link: "/address" },
   ];
   const getActiveStyle = ({isActive})=> ({
        color: isActive ? "green" : "",
@@ -14,9 +13,9 @@ const ProfilePage = () => {
   });
   return (
     <>
-      <div className="top-margin-7rem">
+      <div style={{marginTop: "8rem"}} >
         <div class="all-card-collection a-c-c-dashboard">
-          <h1>Account Settings </h1>
+          <h1 className="account">Account Settings </h1>
           <div class="card-container c-c-dashboard">
             <main class="main-body main-body-dashboard">
               <footer class="footer-card f-c-dashboard">

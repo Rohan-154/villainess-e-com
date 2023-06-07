@@ -25,3 +25,14 @@
 .btn-p-c-dashboard:focus{
     background-color:none
 }
+@media screen and (max-width: 768px) {
+.account{
+font-size: 1.5  rem !important;
+}
+.a-c-c-dashboard{
+    flex-direction: row;
+}
+.c-c-dashboard{
+    height:22rem;
+}
+}
